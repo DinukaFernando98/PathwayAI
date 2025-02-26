@@ -1,0 +1,9 @@
+# SiteConfig
+SilverStripe\SiteConfig\SiteConfig:
+  extensions:
+    - PathwayAI\Extensions\SiteConfigExtension
+
+# Elemental - BaseElement
+DNADesign\Elemental\Models\BaseElement:
+  extensions:
+    - PathwayAI\Extensions\BaseElementExtension

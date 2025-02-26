@@ -1,0 +1,158 @@
+form,
+fieldset {
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+
+input[type='email'],
+input[type='file'],
+input[type='password'],
+input[type='text'],
+input[type='date'],
+input[type='search'],
+input[type='tel'],
+input[type='url'],
+input[type='number'],
+select,
+textarea {
+	width: 100%;
+	padding: 1rem;
+	font-size: 1rem;
+	font-family: $base-font-family;
+	color: $base-color;
+	background: #fff;
+	border: 1px solid $base-color;
+	appearance: none;
+	border-radius: $border-radius;
+	box-sizing: border-box;
+
+	&:active {
+		background: #deeef3;
+		border: 1px solid $base-color;
+	}
+
+	&:focus {
+		background: #deeef3;
+		border: 1px solid $base-color;
+	}
+
+	&::placeholder {
+		color: $base-color;
+	}
+}
+
+select {
+	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' width='24'%3E%3Cpath d='M12 15.05 6.35 9.375l1.05-1.05 4.6 4.6 4.6-4.6 1.05 1.05Z'/%3E%3C/svg%3E")
+		#fff no-repeat center right 1rem;
+
+	&:focus {
+		background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' width='24'%3E%3Cpath d='m7.4 15.05-1.05-1.075L12 8.325l5.65 5.65-1.05 1.075-4.6-4.6Z'/%3E%3C/svg%3E")
+			#deeef3 no-repeat center right 1rem;
+	}
+}
+
+input[type='submit'] {
+	@include text(1rem, 700);
+	background: $base-color;
+	padding: 1rem 2rem;
+	border-radius: $border-radius;
+	appearance: none;
+	color: #fff;
+	width: 100%;
+
+	@include mq(lap) {
+		width: auto;
+	}
+
+	@include hover-focus() {
+		cursor: pointer;
+		background: darken($primary, 5%);
+	}
+}
+
+textarea {
+	resize: vertical;
+	min-height: 150px;
+}
+
+label {
+	font-size: 1rem;
+	font-weight: 700;
+	color: $base-color;
+
+	&.left {
+		display: block;
+		margin: 0 0 0.5rem;
+	}
+
+	&.right {
+		margin: 0 0 0 0.5rem;
+		font-weight: 400;
+	}
+}
+
+.field {
+	margin: 0 0 2rem;
+}
+
+.checkbox {
+	position: relative;
+
+	label {
+		display: block;
+		position: relative;
+		padding: 0 0 0 2rem;
+		z-index: 1;
+		cursor: pointer;
+	}
+
+	.checkmark {
+		position: absolute;
+		top: 0;
+		left: 1rem;
+		height: 25px;
+		width: 25px;
+		background: #fff;
+		border: 1px solid $base-color;
+		border-radius: 5px;
+		transition: background 0.3s ease-in-out;
+
+		&::after {
+			content: '';
+			position: absolute;
+			display: none;
+			left: 8px;
+			top: 4px;
+			width: 7px;
+			height: 13px;
+			border: solid #fff;
+			border-width: 0 3px 3px 0;
+			transform: rotate(45deg);
+			transform: rotate(45deg);
+			transform: rotate(45deg);
+		}
+	}
+
+	&:hover {
+		.checkmark {
+			background: #deeef3;
+		}
+	}
+
+	input {
+		position: absolute;
+		opacity: 0;
+		cursor: pointer;
+		height: 0;
+		width: 0;
+
+		&:checked ~ .checkmark {
+			background: $base-color;
+
+			&::after {
+				display: block;
+			}
+		}
+	}
+}

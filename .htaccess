@@ -1,0 +1,44 @@
+RewriteEngine On
+RewriteRule ^(.*)$ public/$1
+
+# Remove index.php from URLs
+RewriteCond %{THE_REQUEST} ^GET.*index\.php [NC]
+RewriteCond %{REQUEST_URI} !/system/.* [NC]
+RewriteRule (.*?)index\.php/*(.*) /$1$2 [R=301,NE,L]
+
+# Send would-be 404 requests to SilverStripe
+ErrorDocument 404 /index.php
+
+# Exclude some directories from URI rewriting
+RewriteRule ^vendor/.* /$0 [L]
+RewriteRule ^silverstripe-cache/.* /$0 [L]
+RewriteRule ^(.*/)?\.git+ /$0 [L]
+RewriteRule ^resources/.* /$0 [L]
+RewriteRule ^protected/.* /$0 [L]
+
+# Leverage Browser Caching
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    
+    # Cache-Control headers
+    Header set Cache-Control "public"
+    Header set Cache-Control "max-age=31536000, public"
+</IfModule>
+
+# Enable Compression
+<IfModule mod_deflate.c>
+    <IfModule mod_filter.c>
+        AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/x-javascript application/xml
+    </IfModule>
+</IfModule>
+
+# Disable Directory Indexing
+Options -Indexes

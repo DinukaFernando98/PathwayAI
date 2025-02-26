@@ -1,0 +1,61 @@
+.pagination {
+	text-align: center;
+	margin: 1rem 0 0;
+
+	@include mq(desk) {
+		margin: 2rem 0 0;
+	}
+
+	&__prev,
+	&__next,
+	&__active,
+	&__page {
+		font-weight: 700;
+		padding: 0.7rem 1rem;
+		display: inline-block;
+		margin: 1rem 0.3rem;
+		line-height: 1;
+		font-family: $title-font-family;
+
+		@include mq(lap) {
+			margin: 0 0.3rem;
+		}
+	}
+
+	&__prev,
+	&__next,
+	&__active {
+		color: $base-color;
+		background: $base-color;
+		font-weight: 700;
+
+		&:hover,
+		&:focus {
+			@include mq(lap) {
+				background: $primary;
+				color: #fff;
+			}
+		}
+	}
+
+	&__active {
+		background: $tertiary;
+
+		&:hover,
+		&:focus {
+			@include mq(lap) {
+				background: $primary;
+			}
+		}
+	}
+
+	&__page {
+		&:hover,
+		&:focus {
+			@include mq(lap) {
+				background: $primary;
+				color: #fdfdfd;
+			}
+		}
+	}
+}

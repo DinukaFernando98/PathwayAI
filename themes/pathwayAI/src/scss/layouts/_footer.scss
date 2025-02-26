@@ -1,0 +1,99 @@
+.footer {
+	display: grid;
+	grid-template-areas: 'logo' 'blocks' 'aside';
+	grid-template-columns: auto 1fr;
+	align-items: flex-start;
+
+	@include mq(desk) {
+		grid-template-areas: 'logo blocks aside';
+		justify-items: end;
+	}
+
+	&-wrapper {
+		background: $base-color;
+		color: #fff;
+		padding: 4rem 0;
+	}
+
+	.logo {
+		grid-area: logo;
+		margin: 0 0 4rem;
+
+		@include mq(desk) {
+			margin: 0;
+		}
+
+		h1 {
+			@include text(1.8rem, 700);
+			text-transform: uppercase;
+		}
+	}
+
+	&-blocks {
+		grid-area: blocks;
+		display: flex;
+		flex-wrap: wrap;
+		column-gap: 5rem;
+
+		@include mq(lap) {
+			column-gap: 7.5rem;
+		}
+
+		@include mq(desk) {
+			margin: 0 0 0 4rem;
+		}
+
+		@include mq(widescreen) {
+			column-gap: 10rem;
+		}
+	}
+
+	&-block {
+		margin: 0 0 2rem;
+
+		&__heading {
+			@include text(1.2rem, 700);
+			margin: 0 0 1rem;
+		}
+
+		&__item {
+			margin: 0.5rem 0;
+		}
+
+		&__link {
+			@include text(0.9rem, 400);
+
+			@include mq(lap) {
+				@include text(1rem, 400);
+			}
+
+			@include hover-focus() {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	&-sidebar {
+		grid-area: aside;
+	}
+}
+
+.copyright {
+	@include text(0.85rem, 400);
+	display: grid;
+	grid-template-areas: 'left' 'right';
+	grid-gap: 0.5rem;
+	margin: 2rem 0 0;
+
+	@include mq(lap) {
+		grid-template-areas: 'left right';
+		grid-gap: 2rem;
+		margin: 4rem 0 0;
+	}
+
+	&__right {
+		@include mq(lap) {
+			justify-self: right;
+		}
+	}
+}

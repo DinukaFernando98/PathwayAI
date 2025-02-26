@@ -1,0 +1,169 @@
+.nav {
+	$p: &;
+	grid-area: nav;
+	margin: 1.5rem 0 0;
+	display: none;
+
+	&.is-active {
+		display: block;
+	}
+
+	@include mq(lap) {
+		display: block;
+		justify-self: left;
+		margin: 0 -0.5rem;
+	}
+
+	&--2 {
+
+		@include mq(lap) {
+			justify-self: center;
+		}
+	}
+
+	[data-type="slide-in"] {
+		// Rough example - needs work
+		position: absolute;
+		top: 100%;
+		left: -100%;
+		height: calc(100vh - 98px);
+		width: 100%;
+		margin: 0;
+		display: block;
+		background: rgba($base-color, 0.5);
+		transition: left 0.1s ease-in-out;
+
+		&.is-active {
+			left: 0;
+		}
+
+		@include mq(lap) {
+			position: relative;
+			top: auto;
+			left: auto;
+			width: auto;
+			height: auto;
+		}
+
+		#{$p}-list {
+			align-items: flex-start;
+			width: calc(100% - 5rem);
+
+			@include mq(lap) {
+				align-items: center;
+				width: auto;
+			}
+
+			&__item {
+				margin: 0;
+				border-bottom: 1px solid rgba($base-color, 0.5);
+
+				&:last-of-type {
+					border: 0;
+				}
+
+				@include mq(lap) {
+					border: 0;
+				}
+			}
+		}
+	}
+
+	&-btn {
+		@include text(1rem, 700);
+		grid-area: nav-btn;
+		justify-self: right;
+		display: flex;
+		align-items: center;
+		border: 1px solid #fff;
+		padding: 0.75rem 1rem;
+		border-radius: $border-radius;
+
+		&.is-active {
+			.icon-menu {
+				display: none;
+			}
+
+			.icon-close {
+				display: block;
+			}
+
+			#{$p}-btn__text {
+				&::before {
+					display: none;
+				}
+
+				&::after {
+					display: block;
+				}
+			}
+		}
+
+		@include mq(lap) {
+			display: none;
+		}
+
+		svg {
+			fill: #fff;
+			margin: 0 0.5rem 0 0;
+		}
+
+		.icon-close {
+			display: none;
+		}
+
+		&__text {
+			&::before {
+				content: 'Menu';
+			}
+
+			&::after {
+				content: 'Close';
+				display: none;
+			}
+		}
+	}
+
+	&-list {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+
+		&__item {
+			width: 100%;
+			margin: 0.15rem 0;
+
+			@include mq(lap) {
+				width: auto;
+				margin: 0;
+			}
+
+			&.logo {
+				display: none;
+				margin: 0 1.5rem;
+
+				@include mq(lap) {
+					display: block;
+				}
+			}
+		}
+
+		&__link {
+			@include text(1rem, 700);
+			display: block;
+			padding: 1rem 1.5rem;
+			background: #fff;
+			color: $base-color;
+
+			@include mq(lap) {
+				padding: 2rem 0.5rem;
+				background: 0;
+				color: #fff;
+			}
+
+			@include hover-focus() {
+				text-decoration: underline;
+			}
+		}
+	}
+}

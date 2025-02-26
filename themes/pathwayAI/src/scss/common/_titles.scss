@@ -1,0 +1,47 @@
+.h1 {
+	font-size: 2rem;
+
+	@include mq(desk) {
+		font-size: 2.2rem;
+	}
+}
+
+.h2 {
+	font-size: 1.6rem;
+
+	@include mq(desk) {
+		font-size: 1.8rem;
+	}
+}
+
+.h3 {
+	font-size: 1.4rem;
+
+	@include mq(desk) {
+		font-size: 1.6rem;
+	}
+}
+
+.h4 {
+	font-size: 1.2rem;
+
+	@include mq(desk) {
+		font-size: 1.4rem;
+	}
+}
+
+.h5 {
+	font-size: 1rem;
+
+	@include mq(desk) {
+		font-size: 1.2rem;
+	}
+}
+
+.h6 {
+	font-size: 0.8rem;
+
+	@include mq(desk) {
+		font-size: 1rem;
+	}
+}

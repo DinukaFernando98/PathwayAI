@@ -1,0 +1,14 @@
+table {
+	width: 100%;
+
+	th {
+		background: $base-color;
+		color: #fff;
+	}
+
+	th,
+	td {
+		border: 1px solid $base-color;
+		padding: 0.5rem;
+	}
+}

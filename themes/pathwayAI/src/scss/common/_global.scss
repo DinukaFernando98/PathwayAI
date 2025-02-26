@@ -1,0 +1,54 @@
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+html {
+	line-height: 1.15;
+	-webkit-text-size-adjust: 100%;
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	font-family: $base-font-family;
+	position: relative;
+	min-width: 320px;
+	min-height: 100vh;
+	background: #fff;
+	color: $base-color;
+	margin: 0;
+	font-weight: 400;
+}
+
+main {
+	width: 100%;
+	flex-grow: 1;
+}
+
+.no-scroll {
+	width: 100vw;
+	position: fixed;
+	overflow: hidden;
+}
+
+.preload *,
+.no-transition * {
+	transition: none !important;
+}
+
+.z-1 {
+	z-index: 1;
+}
+
+.z-2 {
+	z-index: 2;
+}
+
+.link {
+	@include hover-focus() {
+		text-decoration: underline;
+	}
+}

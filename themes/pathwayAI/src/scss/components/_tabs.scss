@@ -1,0 +1,21 @@
+.tabs {
+
+	&__trigger {
+
+		&.is-active {
+			@include text(1rem, 700);
+			text-decoration: underline;
+		}
+
+		@include hover-focus() {
+			text-decoration: underline;
+		}
+	}
+
+	&__content {
+		@apply shadow-md;
+		background: #fff;
+		padding: 1rem 1.5rem;
+		border-radius: $border-radius;
+	}
+}

@@ -1,0 +1,30 @@
+.dropdown {
+	&__trigger {
+		@include text(1rem, 700);
+		display: block;
+		background: $base-color;
+		color: #fff;
+		padding: 1rem 1.5rem;
+		border-radius: $border-radius;
+		width: 100%;
+
+		@include mq(lap) {
+			display: none;
+		}
+	}
+
+	&__content {
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.3s ease-in-out;
+
+		.is-active & {
+			max-height: 1000px;
+			overflow: visible;
+		}
+
+		@include mq(lap) {
+			max-height: 100%;
+		}
+	}
+}

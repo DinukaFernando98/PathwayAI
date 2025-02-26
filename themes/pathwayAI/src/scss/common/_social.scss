@@ -1,0 +1,30 @@
+.social {
+	display: flex;
+	margin: 0 -0.5rem;
+
+	&__item {
+		margin: 0 0.5rem;
+	}
+
+	&__link {
+		display: block;
+		padding: 0.65rem;
+		color: #fff;
+		border-radius: $border-radius;
+		border: 1px solid #fff;
+
+		@include hover-focus() {
+			background: #fff;
+			color: $base-color;
+
+			svg {
+				transform: scale(.9);
+			}
+		}
+
+		svg {
+			transform: scale(.8);
+			transition: transform .2s ease-in-out;
+		}
+	}
+}

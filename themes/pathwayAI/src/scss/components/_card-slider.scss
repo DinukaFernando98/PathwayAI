@@ -1,0 +1,10 @@
+.card-slider {
+	&::after {
+		content: 'flickity';
+		display: none;
+
+		@include mq(lap) {
+			content: '';
+		}
+	}
+}

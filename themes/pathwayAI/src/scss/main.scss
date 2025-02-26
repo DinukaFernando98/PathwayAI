@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+/*! purgecss start ignore */
+
+/** Import thirdparty */
+@import 'thirdparty/*';
+
+/*! purgecss end ignore */
+
+/**
+ * This injects Tailwind's base styles, which is a combination of
+ * Normalize.css and some additional base styles.
+ */
+@tailwind base;
+
+/*! purgecss start ignore */
+
+/** Import base */
+@import 'base/*';
+
+/** Import core */
+@import 'core/*';
+
+/** Import common */
+@import 'common/*';
+
+/*! purgecss end ignore */
+
+/**
+ * This injects any component classes registered by Tailwind plugins.
+ */
+@tailwind components;
+
+@import 'components/*';
+@import 'layouts/**/*';
+
+/**
+ * This injects all of Tailwind's utility classes, generated based on your
+ * config file.
+ */
+@tailwind utilities;

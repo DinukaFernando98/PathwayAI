@@ -1,0 +1,42 @@
+/*
+ * Fonts
+ */
+
+$default-font: system-ui, -apple-system, blinkmacsystemfont, 'Segoe UI', roboto,
+	'Helvetica Neue', arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+	'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+$base-font-family: 'Arial', $default-font;
+$title-font-family: 'Arial', $default-font;
+$title-thin-font-family: 'Arial', $default-font;
+
+/*
+ * Colours
+ */
+
+$base-color: #131313;
+$primary: #002b49;
+$secondary: #002b49;
+$tertiary: #ff671b;
+
+@layer base {
+	:root {
+		--color-base: 19 19 19;
+		--color-primary: 39 53 62;
+		--color-secondary: 215 12 27;
+		--color-tertiary: 247 247 247;
+	}
+}
+
+/*
+ * UI Colours
+ */
+
+$error-red: #bf0000;
+$success-green: #1e7e15;
+$warning-orange: #ce5d0c;
+
+/*
+ * UI
+ */
+
+$border-radius: 0.25rem;

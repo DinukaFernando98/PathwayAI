@@ -1,0 +1,84 @@
+.header {
+	$p: &;
+	display: grid;
+
+	&-wrapper {
+		position: relative;
+		background: $base-color;
+		color: #fff;
+	}
+
+	&--1 {
+		grid-template-areas: 'logo nav-btn' 'nav nav' 'aside aside';
+		align-items: center;
+
+		@include mq(lap) {
+			grid-template-areas: 'logo nav aside';
+			grid-template-columns: auto 1fr;
+			grid-gap: 2.5rem;
+		}
+	}
+
+	&--2 {
+		grid-template-areas: 'nav-btn logo aside' 'nav nav nav';
+		align-items: center;
+
+		@include mq(lap) {
+			grid-template-areas: 'logo nav aside';
+			grid-template-columns: 1fr 10fr 1fr;
+		}
+
+		.nav-btn {
+			justify-self: left;
+			padding: .75rem;
+
+			svg {
+				margin: 0;
+			}
+
+			&__text {
+				@apply sr-only;
+			}
+		}
+
+		.logo {
+			text-align: center;
+		}
+
+		#{$p}-sidebar {
+			display: block;
+			margin: 0;
+			justify-self: right;
+		}
+	}
+
+	.logo {
+		grid-area: logo;
+		width: auto;
+		padding: 1.5rem 0;
+
+		@include mq(lap) {
+			padding: 0;
+		}
+
+		h1 {
+			@include text(1.8rem, 700);
+			text-transform: uppercase;
+		}
+	}
+
+	&-sidebar {
+		grid-area: aside;
+		display: none;
+		margin: 1.5rem 0 0;
+
+		&.is-active {
+			display: block;
+		}
+
+		@include mq(lap) {
+			display: block;
+			margin: 0;
+		}
+	}
+}

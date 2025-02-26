@@ -1,0 +1,10 @@
+"use strict"
+import './components/config'
+import './components/header'
+import './components/animations'
+import './components/lazy'
+import './components/sliders'
+import './components/dropdown'
+import './components/tabs'
+import './components/modal'
+import './components/gallery'

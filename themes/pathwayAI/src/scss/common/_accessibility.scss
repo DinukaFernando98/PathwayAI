@@ -1,0 +1,13 @@
+.a11y-btn {
+	@apply sr-only;
+	@include text(1rem, 700);
+	display: block;
+	background: #fff;
+	color: $base-color;
+	text-align: center;
+
+	&:focus {
+		@apply not-sr-only;
+		padding: 0.75rem 1.5rem;
+	}
+}
