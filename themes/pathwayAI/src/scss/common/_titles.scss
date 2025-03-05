@@ -1,47 +1,48 @@
 .h1 {
-	font-size: 2rem;
+	font-size: 2.5rem;
 
-	@include mq(desk) {
-		font-size: 2.2rem;
+	@include wi-mq(lap) {
+		font-size: 4rem;
 	}
 }
 
 .h2 {
-	font-size: 1.6rem;
+	font-size: 2.25rem;
+	font-weight: 300;
 
-	@include mq(desk) {
-		font-size: 1.8rem;
+	@include wi-mq(lap) {
+		font-size: 3rem;
+	}
+
+	@include wi-mq(desk) {
+		font-size: 3.75rem;
 	}
 }
 
 .h3 {
-	font-size: 1.4rem;
+	font-size: 2rem;
 
-	@include mq(desk) {
-		font-size: 1.6rem;
+	@include wi-mq(lap) {
+		font-size: 3rem;
 	}
 }
 
 .h4 {
-	font-size: 1.2rem;
+	font-size: 1.75rem;
 
-	@include mq(desk) {
-		font-size: 1.4rem;
+	@include wi-mq(lap) {
+		font-size: 2rem;
 	}
 }
 
 .h5 {
-	font-size: 1rem;
+	font-size: 1.3rem;
 
-	@include mq(desk) {
-		font-size: 1.2rem;
+	@include wi-mq(lap) {
+		font-size: 1.5rem;
 	}
 }
 
 .h6 {
-	font-size: 0.8rem;
-
-	@include mq(desk) {
-		font-size: 1rem;
-	}
+	font-size: 1rem;
 }

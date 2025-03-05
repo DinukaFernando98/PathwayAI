@@ -8,7 +8,7 @@
 		border-radius: $border-radius;
 		width: 100%;
 
-		@include mq(lap) {
+		@include wi-mq(lap) {
 			display: none;
 		}
 	}
@@ -23,7 +23,7 @@
 			overflow: visible;
 		}
 
-		@include mq(lap) {
+		@include wi-mq(lap) {
 			max-height: 100%;
 		}
 	}

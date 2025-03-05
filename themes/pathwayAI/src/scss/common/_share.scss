@@ -1,0 +1,25 @@
+.share-buttons {
+	margin: 0 -.25rem 3.25rem;
+
+	&__item {
+		background: $primary;
+		border-radius: 3rem;
+		padding: .5rem !important;
+		margin: 0 .25rem;
+
+		@include hover-focus() {
+			background: $secondary;
+
+			.a2a_svg {
+				opacity: 1 !important;
+			}
+		}
+
+		.a2a_svg {
+			background: 0 !important;
+			height: 25px;
+			width: 25px;
+			line-height: 25px;
+		}
+	}
+}

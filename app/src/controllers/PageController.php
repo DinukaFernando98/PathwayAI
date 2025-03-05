@@ -39,14 +39,6 @@ namespace {
 
             $theme = SSViewer::get_themes();
             $theme = reset($theme);
-
-            if ($theme == '$public') {
-                Requirements::css($file_dir . "/css/style.css");
-                Requirements::javascript($file_dir . "/js/scripts.js");
-            } else {
-                Requirements::css("themes/" . $theme . "/" . $file_dir . "/css/style.css");
-                Requirements::javascript("themes/" . $theme . "/" . $file_dir . "/js/scripts.js");
-            }
 		}
 
         public function getMainNavigation()

@@ -12,3 +12,35 @@ table {
 		padding: 0.5rem;
 	}
 }
+
+.table {
+
+	&--alt {
+
+		tr {
+			background: $tertiary;
+			border-bottom: 3px solid #fff;
+
+			&:nth-of-type(even) {
+				background: darken($tertiary, 10%);
+			}
+
+			&:last-of-type {
+				border-bottom: 0;
+			}
+		}
+
+		th {
+			background: transparent;
+			color: $base-color;
+			vertical-align: top;
+		}
+
+		th,
+		td {
+			border: 0;
+			padding: 1rem 2rem;
+			line-height: 1.5;
+		}
+	}
+}

@@ -1,0 +1,19 @@
+.job-block {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	height: 100%;
+	width: 100%;
+	background: $primary;
+	color: #fff;
+	padding: 0 2rem 1.5rem;
+
+	@include wi-mq(lap) {
+		margin: 0 .5rem;
+		padding: 0 3rem 2.5rem;
+	}
+
+	@include hover-focus() {
+		background: $base-color;
+	}
+}

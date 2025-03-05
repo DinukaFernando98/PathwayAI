@@ -4,7 +4,6 @@
 			<div class="logo">
 				<h1 class="mb-4">Logo</h1>
 				<p class="mb-8">A short snippet of text below the logo.</p>
-				<% include SocialLinks %>
 			</div>
             <div class="footer-blocks">
                 <% if $getMainNavigation %>

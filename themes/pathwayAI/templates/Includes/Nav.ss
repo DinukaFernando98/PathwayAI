@@ -1,14 +1,3 @@
-<%--
-# Nav Types
-
-To use - e.g.
-<% include Nav Type='slide-in' %>
-
-## Keep these alphabetical so they are easier to manage
-- Default (leave Type variable blank to use)
-- Slide-In
---%>
-
 <% if $getMainNavigation %>
 	<nav class="nav"
 		 id="nav"

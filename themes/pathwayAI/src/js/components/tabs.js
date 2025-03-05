@@ -22,8 +22,8 @@ if (tabs) {
 
 				document.getElementById(linkItem.dataset.tab).classList.remove('hidden');
 				document.getElementById(linkItem.dataset.tab).setAttribute('aria-hidden', 'false');
-				document.getElementById(linkItem.dataset.tab).querySelector('article').setAttribute('tabindex', '-1');
-				document.getElementById(linkItem.dataset.tab).querySelector('article').focus();
+				document.getElementById(linkItem.dataset.tab).querySelector('div').setAttribute('tabindex', '-1');
+				document.getElementById(linkItem.dataset.tab).querySelector('div').focus();
 			});
 		});
 	});

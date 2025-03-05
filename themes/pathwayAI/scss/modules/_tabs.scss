@@ -1,0 +1,54 @@
+/*Tabs*/
+ul.tabs {
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
+  list-style: none;
+  width: 100%;
+}
+
+ul.tabs li {
+    position: relative;
+    margin: 0;
+    cursor: pointer;
+    transition: color 0.6s;
+    color: currentColor;
+    user-select: none;
+    opacity: 1;
+}
+
+ul.tabs li:hover {
+  opacity: 1;
+  color: var(--bs-green);
+}
+
+
+ul.tabs li span:after {
+  position: absolute;
+    left: 0;
+    bottom: -10px;
+    content: "";
+    height: 1px;
+    width: 100%;
+    transform: scaleX(0);
+    will-change: transform;
+    background: var(--bs-green);
+    transform-origin: right center;
+    transition: transform .3s ;
+}
+
+
+
+
+ul.tabs li.active span:after {
+  transform: scaleX(1);
+    transform-origin: left center;
+}
+
+
+ul.tabs li.active {
+  opacity: 1;
+  pointer-events:none;
+  display: block;
+  font-weight: $font-weight-semibold;
+}

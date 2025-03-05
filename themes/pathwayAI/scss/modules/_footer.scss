@@ -1,0 +1,39 @@
+footer {
+    position: relative;
+}
+
+.footer-bottom {
+    font-size: 13px;
+}
+
+footer ul li {
+    margin:7px 0 ;
+}
+
+footer a {
+    text-decoration: none;
+    transition: color 0.4s;
+}
+footer a:hover {
+    color: var(--bs-green);
+}
+
+footer a svg {
+    margin-right:10px;
+}
+
+footer a span {
+    color: #fff;
+    background-image: linear-gradient(90deg, currentColor, currentColor);
+    background-repeat: no-repeat;
+    background-position: left bottom 0px;
+    background-size: 0% 1px;
+    transition: background-size 0.3s ease-in-out, color 0.4s;
+}
+
+footer a:hover  span {
+    color: var(--bs-green);
+    text-decoration: none;
+    background-size: 100% 1px;
+}
+

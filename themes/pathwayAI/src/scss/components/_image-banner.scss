@@ -8,7 +8,7 @@
 	&__content {
 		padding: 3rem 0;
 
-		@include mq(lap) {
+		@include wi-mq(lap) {
 			position: absolute;
 			top: 0;
 			left: 0;

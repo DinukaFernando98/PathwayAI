@@ -1,0 +1,59 @@
+.steps {
+	$p: &;
+	counter-reset: steps-counter;
+
+	&__item {
+		position: relative;
+		display: flex;
+		align-items: flex-start;
+		overflow: hidden;
+
+		&:last-of-type {
+
+			&::after {
+				display: none;
+			}
+		}
+
+		&::after {
+			content: '';
+			height: 100vh;
+			border-left: 4px dotted $primary;
+			position: absolute;
+			top: 0;
+			left: calc(2rem - 2px);
+		}
+	}
+
+	&__counter {
+		position: relative;
+		width: 4rem;
+		height: 4rem;
+		border: 2px solid $secondary;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0 1.5rem 0 0;
+		border-radius: 4rem;
+		z-index: 1;
+		background: $tertiary;
+
+		&::before {
+			@include text(1.3rem, 700);
+			counter-increment: steps-counter;
+			content: counter(steps-counter);
+		}
+
+		&--with-icon {
+
+			&::before {
+				display: none;
+			}
+		}
+	}
+
+	&__content {
+		width: calc(100% - 5.5rem);
+		margin: 1.25rem 0 0;
+	}
+}

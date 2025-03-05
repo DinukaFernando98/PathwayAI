@@ -3,7 +3,7 @@
 		content: 'flickity';
 		display: none;
 
-		@include mq(lap) {
+		@include wi-mq(lap) {
 			content: '';
 		}
 	}

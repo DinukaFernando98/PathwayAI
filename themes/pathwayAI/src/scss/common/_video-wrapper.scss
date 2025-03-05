@@ -40,7 +40,7 @@
 	&:focus {
 		cursor: pointer;
 
-		@include mq(lap) {
+		@include wi-mq(lap) {
 			background: rgba($base-color, 0.3);
 
 			&::after {
@@ -60,4 +60,8 @@
 		margin: 0 0 0 0.5rem;
 		transition: all 0.2s ease-in-out;
 	}
+}
+
+.aspect-ratio {
+	aspect-ratio: 16 / 9;
 }

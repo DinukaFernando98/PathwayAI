@@ -1,0 +1,151 @@
+.hero {
+	$p: &;
+	position: relative;
+	padding: 4rem 0;
+	text-align: left;
+	background: $primary;
+
+	@include wi-mq(lap) {
+		padding: 10rem 0;
+	}
+
+	&::before {
+		content: '';
+		//background: linear-gradient(180deg, rgba($primary, .75) 0%, rgba($primary, .5) 70%, rgba($primary, .5) 71%, rgba($primary, .75) 100%);
+		background: radial-gradient(circle, rgba(39, 53, 62, .65) 30%, rgba(39, 53, 62, 0.9) 75%);
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		z-index: 2;
+		mix-blend-mode: multiply;
+	}
+
+	&__title {
+		@include text(2.5rem, 300);
+
+		@include wi-mq(lap) {
+			@include text(4rem, 300);
+		}
+	}
+
+	&__subtitle {
+		@include text(1.1rem, 300);
+	}
+
+	&--home {
+		position: relative;
+		padding: 5rem 0;
+		text-align: center;
+
+		@include wi-mq(lap) {
+			padding: 8rem 0 calc(8rem + 100px);
+		}
+
+		@include wi-mq(desk) {
+			padding: 12rem 0 calc(12rem + 100px);
+		}
+
+		@include wi-mq(widescreen) {
+			padding: 17rem 0 calc(17rem + 100px);
+		}
+
+		#{$p}__title {
+			@include text(2rem, 700);
+			font-family: $feature-font-family;
+
+			@include wi-mq(lap) {
+				font-size: 3rem;
+			}
+
+			@include wi-mq(widescreen) {
+				font-size: 3.5rem;
+			}
+
+			strong {
+				font-weight: 700;
+				color: $secondary;
+			}
+		}
+
+		#{$p}__subtitle {
+			@include text(1.1rem, 500, 1.5);
+
+			@include wi-mq(lap) {
+				@include text(1.3rem, 500, 1.5);
+			}
+		}
+
+		#{$p}__feature {
+
+			svg {
+				opacity: 1;
+			}
+		}
+	}
+
+	&__video {
+		display: none;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%);
+		z-index: 1;
+		width: 100%;
+		height: 101%;
+		object-fit: cover;
+		//opacity: 0;
+		transition: opacity 0.3s ease-in-out;
+
+		@include wi-mq(lap) {
+			display: block;
+		}
+
+		&.is-loaded {
+			//opacity: 1;
+		}
+	}
+
+	&__trigger {
+		display: none;
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding: 0.5rem;
+		background: transparent;
+		border: 0;
+		color: #fff;
+		z-index: 3;
+
+		@include wi-mq(lap) {
+			display: block;
+		}
+
+		@include hover-focus() {
+
+			svg {
+				background: $primary;
+			}
+		}
+
+		&.is-paused {
+			.icon-pause {
+				display: none;
+			}
+
+			.icon-play {
+				display: block;
+			}
+		}
+
+		.icon-play {
+			display: none;
+		}
+
+		svg {
+			border-radius: 100%;
+			background: $primary;
+		}
+	}
+}

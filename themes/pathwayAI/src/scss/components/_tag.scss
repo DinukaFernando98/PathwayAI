@@ -1,0 +1,8 @@
+.tag {
+	@include text(.9rem, 700, 1);
+	display: inline-flex;
+	align-items: center;
+	padding: .5rem .75rem;
+	background: $secondary;
+	color: $base-color;
+}

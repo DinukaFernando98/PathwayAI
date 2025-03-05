@@ -1,0 +1,19 @@
+.jobs-slider {
+
+	&__item {
+		width: 100%;
+
+		@include wi-mq(lap) {
+			width: 50%;
+			margin: 0 1rem 0 0;
+		}
+
+		@include wi-mq(desk) {
+			width: calc(33.33% - .65rem);
+		}
+
+		.job-block {
+			margin: 0;
+		}
+	}
+}

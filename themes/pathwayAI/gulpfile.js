@@ -1,124 +1,166 @@
-const { src, dest, watch, series, parallel } = require('gulp');
-const del = require('del'); //For Cleaning build/dist for fresh export
-const options = require("./config"); //paths and other options from config.js
-const sassGlob = require('gulp-sass-glob');
-const sass = require('gulp-sass')(require('sass')); //For Compiling SASS files
-const postcss = require('gulp-postcss'); //For Compiling tailwind utilities with tailwind config
-const concat = require('gulp-concat'); //For Concatinating js,css files
-const uglify = require('gulp-terser');//To Minify JS files
-const sourcemaps = require('gulp-sourcemaps');
-//const imagemin = require('gulp-imagemin'); //To Optimize Images
-const cleanCSS = require('gulp-clean-css');//To Minify CSS files
-const purgecss = require('gulp-purgecss');// Remove Unused CSS from Styles
-const logSymbols = require('log-symbols'); //For Symbolic Console logs
-const browserify = require('browserify');
-const source  = require('vinyl-source-stream');
-const buffer = require('vinyl-buffer');
-const autoprefixer = require('gulp-autoprefixer');
+// Load Gulp...of course
+const { src, dest, task, watch, series, parallel } = require('gulp');
 
-const styleList = [
-    options.paths.src.main,
-];
+// CSS related plugins
+//var sass         = require( 'gulp-sass' );
+var sass = require('gulp-sass')(require('sass'));
 
-function devStyles(){
-    const tailwindcss = require('tailwindcss');
-    return src(styleList)
-        .pipe(sassGlob())
-        .pipe(sass().on('error', sass.logError))
-        .pipe(postcss([
-            tailwindcss(options.config.tailwindJS),
-            require('autoprefixer'),
-        ]))
-        .pipe(concat({ path: 'style.css'}))
-		.pipe(autoprefixer())
-        .pipe(dest(options.paths.dist.css));
+var postCSS = require('gulp-postcss');
+var autoprefixer = require('autoprefixer');
+var purify = require('gulp-purifycss');
+
+// JS related plugins
+var terser       = require( 'gulp-terser' );
+var babelify     = require( 'babelify' );
+var browserify   = require( 'browserify' );
+var source       = require( 'vinyl-source-stream' );
+var buffer       = require( 'vinyl-buffer' );
+var stripDebug   = require( 'gulp-strip-debug' );
+
+// Utility plugins
+var rename       = require( 'gulp-rename' );
+var sourcemaps   = require( 'gulp-sourcemaps' );
+var notify       = require( 'gulp-notify' );
+var plumber      = require( 'gulp-plumber' );
+var options      = require( 'gulp-options' );
+var gulpif       = require( 'gulp-if' );
+
+
+var concat       = require( 'gulp-concat' );
+
+
+// Browers related plugins
+var browserSync  = require( 'browser-sync' ).create();
+
+// Project related variables
+var mainDir		 = '/';
+
+var styleSRC     = 'scss/bootstrap.scss';
+var styleURL     = 'css';
+var mapURL       = '';
+
+var jsSRC        = './js/_js/_plugins/*.js';
+var jsFront      = 'all.js';
+
+var jsFiles      = [ jsFront ];
+var jsURL        = 'js/';
+
+var imgSRC       = './src/images/**/*';
+var imgURL       = './dist/images/';
+
+var fontsSRC     = './src/fonts/**/*';
+var fontsURL     = './dist/fonts/';
+
+var htmlSRC     = './src/**/*.html';
+var htmlURL     = './dist/';
+
+//var styleWatchSASS   = '/scss/**/*.sass';
+var styleWatchSCSS   = 'scss/**/*.scss';
+var styleWatch   = 'style.css';
+
+var jsWatch      = 'js/_js/**/*.js';
+var jsWatch2      = 'js/main.js';
+var jsWatch3      = 'js/modules/**/*.js';
+
+//var imgWatch     = './src/images/**/*.*';
+//var fontsWatch   = './src/fonts/**/*.*';
+var htmlWatch    = '*.html';
+
+// Tasks
+function browser_sync() {
+	browserSync.init({
+		injectChanges: true,
+		ghostMode: false,
+		server: {
+			baseDir: './'
+		}
+	});
 }
 
-function devScripts(){
-    return browserify(['./src/js/main.js'], {debug: true})
-        .transform('babelify', {
-            presets: ['@babel/preset-env'],
-            sourceMaps: true,
-            global: true,
-            ignore: [/\/node_modules\/(?!gsap\/)/],
-            plugins: ['@babel/plugin-transform-runtime'],
-        })
-        .bundle()
-        .pipe(source('scripts.js'))
-        .pipe(buffer())
-        .pipe(sourcemaps.init({loadMaps: true}))
-        .pipe(uglify())
-        .pipe(sourcemaps.write('.'))
-        .pipe(dest(options.paths.dist.js));
+function reload(done) {
+	browserSync.reload();
+	done();
+
 }
 
-function watchFiles(){
-    watch('./templates/**/*.ss', series(devStyles));
-    watch([options.config.tailwindJS, `${options.paths.src.css}/**/*`],series(devStyles));
-    watch(`${options.paths.src.js}/**/*.js`,series(devScripts));
-    console.log("\n\t" + logSymbols.info,"Watching for Changes..\n");
-}
+function style(done) {
+	src( [ styleSRC ] )
+		.pipe( sourcemaps.init() )
+		.pipe( sass({
+			errLogToConsole: true,
+			outputStyle: 'compressed'
+		}) )
+		.on( 'error', console.error.bind( console ) )
+		.pipe(postCSS([autoprefixer()]))
+		.pipe( sourcemaps.write( mapURL ) )
+		
 
-function devClean(){
-    console.log("\n\t" + logSymbols.info,"Cleaning dist folder for fresh start.\n");
-    return del([options.paths.dist.base]);
-}
+		.pipe( dest( styleURL ) )
+		//.pipe(purify(["css2/" + '*.html']))
+		//.pipe(purify(['text.html'], {    
+		//  minify: true,     
+		//}))
+		.pipe( browserSync.stream() );
+	done();
+};
 
-function prodStyles(){
-    return src(`${options.paths.dist.css}/**/*`)
-        .pipe(purgecss({
-            content: [
-                'src/**/*.js',
-                'templates/**/*.ss'
-            ],
-            safelist: options.config.safelist,
-            defaultExtractor: content => {
-                const broadMatches = content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || []
-                const innerMatches = content.match(/[^<>"'`\s.()]*[^<>"'`\s.():]/g) || []
-                return broadMatches.concat(innerMatches)
-            },
-        }))
-        .pipe(cleanCSS({compatibility: 'ie8'}))
-        .pipe(dest(options.paths.build.css));
-}
 
-function prodScripts(){
-
-    return browserify(['./src/js/main.js'], {debug: true})
-        .transform('babelify', {
-            presets: ['@babel/preset-env'],
-            sourceMaps: true,
-            global: true,
-            ignore: [/\/node_modules\/(?!gsap\/)/],
-            plugins: ['@babel/plugin-transform-runtime'],
-        })
-        .bundle()
-        .pipe(source('scripts.js'))
-        .pipe(buffer())
-        .pipe(sourcemaps.init({loadMaps: true}))
-        .pipe(uglify())
-        .pipe(sourcemaps.write('.'))
-        .pipe(dest(options.paths.build.js));
-}
-
-function prodClean(){
-    console.log("\n\t" + logSymbols.info,"Cleaning build folder for fresh start.\n");
-    return del([options.paths.build.base]);
-}
-
-function buildFinish(done){
-    console.log("\n\t" + logSymbols.info,`Production build is complete. Files are located at ${options.paths.build.base}\n`);
+function stylecss(done) {
+    src( [ styleWatch ] )
+    	.pipe( browserSync.stream() );
     done();
+};
+
+
+
+
+function script(done) {
+    return src([ jsSRC ])
+    	.pipe( sourcemaps.init() )
+	    .pipe(terser())
+		.pipe(concat(jsFront))
+		 .pipe(sourcemaps.write('../maps'))
+		.pipe(dest(jsURL));
+	done();
+};
+
+
+function triggerPlumber( src_file, dest_file ) {
+	return src( src_file )
+		.pipe( plumber() )
+		.pipe( dest( dest_file ) );
 }
 
-exports.default = series(
-    devClean, // Clean Dist Folder
-    parallel(devStyles, devScripts), //Run All tasks in parallel
-    watchFiles // Watch for Live Changes
-);
+function images() {
+	return triggerPlumber( imgSRC, imgURL );
+};
 
-exports.prod = series(
-    prodClean, // Clean Build Folder
-    parallel(prodStyles, prodScripts), //Run All tasks in parallel
-    buildFinish
-);
+function fonts() {
+	return triggerPlumber( fontsSRC, fontsURL );
+};
+
+function html() {
+	return triggerPlumber( htmlSRC, htmlURL );
+};
+
+function watch_files() {
+	//watch(styleWatchSASS, series(style, reload));
+
+	watch(styleWatchSCSS, series(style));
+	watch(styleWatch, series(stylecss));
+
+	watch(jsWatch, series(script, reload));
+	watch(jsWatch2, series(script, reload));
+	watch(jsWatch3, series(script, reload));
+	//watch(imgWatch, series(images, reload));
+	//watch(fontsWatch, series(fonts, reload));
+	watch(htmlWatch, series(html, reload));
+		//.pipe( notify({ message: 'Gulp is Watching, Happy Coding!' }) );
+}
+
+task("style", style);
+task("script", script);
+task("images", images);
+task("fonts", fonts);
+task("default", parallel(style, script, images, fonts, html));
+task("watch", parallel(browser_sync, watch_files));

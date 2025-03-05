@@ -1,41 +1,68 @@
 .button {
 	@include text(1rem, 700);
 	display: inline-flex;
-	justify-content: center;
-	padding: 1rem 1.5rem;
+	align-items: center;
+	text-align: left;
+	padding: 1rem 0;
 	line-height: 1;
-	text-align: center;
-	background: $base-color;
-	border: 1px solid $base-color;
-	color: #fff;
-	text-shadow: none;
+	color: $base-color;
 	text-transform: uppercase;
-	font-family: $title-font-family;
-	border-radius: $border-radius;
 
-	@include hover-focus() {
-		background: #fff;
-		color: $base-color;
+	svg {
+		@apply group-hover/button:md:bg-secondary group-hover/button:md:fill-white group-focus/button:md:bg-secondary group-focus/button:md:fill-white;
+		border-radius: 100%;
+		margin: 0 0 0 .75rem;
+		fill: $secondary;
+		min-width: 24px;
 	}
 
-	&--alt {
-		border: 1px solid #fff;
-		background: transparent;
-		color: #fff;
+	@include hover-focus() {
 
-		@include hover-focus() {
-			background: #fff;
-			color: $base-color;
+		svg {
+			background: $secondary;
+			fill: #fff;
 		}
 	}
 
-	&--icon {
-		padding: 0.75rem;
-	}
+	&--alt {
+		color: #fff;
 
-	&--small {
-		font-size: 0.9rem;
-		padding: 0.75rem 1.25rem;
-		text-transform: none;
+		svg {
+			@apply group-hover/button:md:bg-white group-hover/button:md:fill-secondary group-focus/button:md:bg-white group-focus/button:md:fill-secondary;
+			fill: #fff;
+		}
+
+		@include hover-focus() {
+
+			svg {
+				background: #fff;
+				fill: $secondary;
+			}
+		}
+	}
+}
+
+.scroll-btn {
+	position: fixed;
+	background: $primary;
+	padding: .5rem 1rem .5rem .75rem;
+	border-radius: 2rem;
+	bottom: 1rem;
+	width: auto;
+	left: 50%;
+	transform: translateY(-50%);
+	color: #fff;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	z-index: 10;
+	box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+	margin-left: -88.5px;
+
+	svg {
+		margin-left: .75rem;
+		margin-right: -.5rem;
+		background: darken($primary, 10%);
+		border-radius: 1rem;
 	}
 }

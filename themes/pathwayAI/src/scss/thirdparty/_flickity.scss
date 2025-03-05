@@ -1,1 +1,49 @@
-@import "node_modules/flickity/css/flickity";
+.flickity {
+	&-page-dots {
+		bottom: 2rem;
+	}
+
+	&-page-dot {
+		width: 15px;
+		height: 15px;
+		border: 2px solid #fff;
+
+		&.is-selected {
+			background: #fff;
+		}
+
+		@include wi-mq(lap) {
+			background: transparent;
+		}
+
+		.banner--white &,
+		.banner--grey & {
+			border: 2px solid $primary;
+
+			&.is-selected {
+				background: $primary;
+			}
+		}
+	}
+
+	&-prev-next-button {
+		display: none;
+		color: #fff;
+
+		@include wi-mq(lap) {
+			display: block;
+		}
+
+		@include hover-focus() {
+			background: transparent;
+			border: 2px solid #fff;
+		}
+	}
+
+	&-cell {
+
+		&.is-selected {
+			z-index: 1;
+		}
+	}
+}

@@ -3,14 +3,22 @@
  */
 
 $breakpoints: (
-	'thumb': 'screen and (min-width: 640px)', //sm - tailwind
-	'lap': 'screen and (min-width: 768px)', //md - tailwind
-	'desk': 'screen and (min-width: 1024px)', //lg - tailwind
-	'widescreen': 'screen and (min-width: 1280px)', //xl - tailwind
-	'widescreen-4k': 'screen and (min-width: 1536px)', //2xl - tailwind
+	'stamp': 'screen and (max-width: 375px)',
+	'thumb': 'screen and (min-width: 640px)',
+	// sm - tailwind
+	'up-to-lap': 'screen and (max-width: 767px)',
+	// md - tailwind
+	'lap': 'screen and (min-width: 768px)',
+	// md - tailwind
+	'desk': 'screen and (min-width: 1024px)',
+	// lg - tailwind
+	'widescreen': 'screen and (min-width: 1280px)',
+	// xl - tailwind
+	'widescreen-4k': 'screen and (min-width: 1536px)',
+	// 2xl - tailwind
 );
 
-@mixin mq($alias) {
+@mixin wi-mq($alias) {
 	// Search breakpoint map for alias
 	$query: map-get($breakpoints, $alias);
 
@@ -30,19 +38,19 @@ body {
 		display: none;
 		visibility: hidden;
 
-		@include mq(lap) {
+		@include wi-mq(lap) {
 			content: 'lap';
 		}
 
-		@include mq(desk) {
+		@include wi-mq(desk) {
 			content: 'desk';
 		}
 
-		@include mq(widescreen) {
+		@include wi-mq(widescreen) {
 			content: 'widescreen';
 		}
 
-		@include mq(widescreen-4k) {
+		@include wi-mq(widescreen-4k) {
 			content: 'widescreen-4k';
 		}
 	}

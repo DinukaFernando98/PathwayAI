@@ -1,9 +1,9 @@
 module.exports = {
 	content: [
-        'templates/**/*.ss',
+        '../templates/**/**/*.twig',
         'src/js/components/*.js'
     ],
-	media: false, // or 'media' or 'class'
+	media: false,
 	theme: {
 		container: {
 			center: true,
@@ -14,6 +14,7 @@ module.exports = {
 				'primary': 'rgb(var(--color-primary) / <alpha-value>)',
 				'secondary': 'rgb(var(--color-secondary) / <alpha-value>)',
 				'tertiary': 'rgb(var(--color-tertiary) / <alpha-value>)',
+				'dark-blue': 'rgb(var(--color-dark-blue) / <alpha-value>)'
 			},
 		},
 	},

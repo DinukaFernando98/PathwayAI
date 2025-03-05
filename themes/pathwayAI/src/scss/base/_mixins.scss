@@ -32,12 +32,16 @@
 	text-shadow: 0 3px 6px rgba(0, 0, 0, $opacity);
 }
 
+@mixin box-shadow() {
+	box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+}
+
 @mixin overlay($color: false) {
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
-	@if  $color {
+	@if $color {
 		background: rgba($color, 0.3);
 	} @else {
 		background: rgba($base-color, 0.3);
@@ -59,7 +63,7 @@
 @mixin hover-focus($size: lap) {
 	&:hover,
 	&:focus {
-		@include mq($size) {
+		@include wi-mq($size) {
 			@content;
 		}
 	}
@@ -69,20 +73,20 @@
 	min-height: 550px;
 	height: calc(100vh - 87px);
 
-	@include mq(lap) {
+	@include wi-mq(lap) {
 		min-height: 600px;
 		height: calc(100vh - 127px);
 	}
 
-	@include mq(desk) {
+	@include wi-mq(desk) {
 		height: calc(100vh - 96px);
 	}
 
-	@include mq(widescreen) {
+	@include wi-mq(widescreen) {
 		height: calc(100vh - 144px);
 	}
 
-	@include mq(widescreen-4k) {
+	@include wi-mq(widescreen-4k) {
 		height: calc(100vh - 146px);
 	}
 }
@@ -90,7 +94,7 @@
 @mixin small-title($color) {
 	@include text(0.9rem, 700);
 	text-transform: uppercase;
-	@if  $color {
+	@if $color {
 		color: $color;
 	} @else {
 		color: $base-color;

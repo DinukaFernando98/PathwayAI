@@ -1,0 +1,284 @@
+/* Floater labels */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    background-color: transparent;
+    border-bottom: 1px solid var(--bs-green);
+    -webkit-box-shadow: 0 0 0 30px transparent inset !important;
+    -webkit-text-fill-color: #fff;
+}
+
+input:-internal-autofill-selected,
+input:-internal-autofill-selected:hover,
+input:-internal-autofill-selected:focus,
+textarea:-internal-autofill-selected,
+textarea:-internal-autofill-selected:hover,
+textarea:-internal-autofill-selected:focus,
+select:-internal-autofill-selected,
+select:-internal-autofill-selected:hover,
+select:-internal-autofill-selected:focus {
+    background-color: transparent;
+    border-bottom: 1px solid var(--bs-green);
+    -webkit-box-shadow: 0 0 0 30px transparent inset !important;
+    -webkit-text-fill-color: #fff;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus,
+select:-webkit-autofill:active {
+    transition: background-color 50000s ease-in-out 0s;
+    border-bottom: 1px solid var(--bs-green);
+    -webkit-box-shadow: 0 0 0 30px transparent inset !important;
+    -webkit-text-fill-color: #fff;
+}
+
+
+input[type="text"].form-control,
+input[type="email"].form-control,
+input[type="tel"].form-control,
+input[type="number"].form-control,
+input[type="search"].form-control,
+select.form-control,
+textarea.form-control {
+    height: 64px;
+    line-height: 1.2;
+    padding: 20px 0 0 0;
+    margin: 0 0 10px;
+    background: transparent;
+    width: 100%;
+    font-weight: 400;
+    border: none;
+    border-bottom: 1px solid var(--bs-green);
+    box-shadow: none!important;
+}
+
+// Focus
+input[type="text"].form-control:focus,
+input[type="email"].form-control:focus,
+input[type="tel"].form-control:focus,
+input[type="number"].form-control:focus,
+input[type="search"].form-control:focus,
+select.form-control:focus,
+textarea.form-control:focus {
+    border-color: #fff;
+}
+
+
+
+textarea.form-control {padding-top: 34px!important;height: 140px;}
+
+
+
+select.form-control {
+    cursor: pointer;
+    border-radius: 0;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12.431' height='8' viewBox='0 0 12.431 8'%3E %3Cpath id='expand_more_FILL0_wght600_GRAD0_opsz24' d='M228.128-651.653l-6.216-6.216%2C1.784-1.784%2C4.431%2C4.431%2C4.431-4.431%2C1.784%2C1.784Z' transform='translate(-221.912 659.653)' fill='%23fff'/%3E %3C/svg%3E ");
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 12px;
+    -webkit-appearance: none;
+    box-shadow: none!important;
+}
+
+select.form-control option {
+    color:var(--bs-blue);
+    font-weight: 500;
+}
+
+.field-holder {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.field-holder > span {
+    /*background: #F7F8F9;*/
+    display: block;
+}
+
+.field-holder label.float-label {
+    cursor: auto;
+    position: absolute;
+    z-index: 2;
+    top: 25px;
+    font-weight: 400;
+    margin-top: -6px;
+    font-size: 16px;
+    display: inline-block;
+    transition: all 0.2s;
+    pointer-events: none;
+    color: var(--color-blue)
+}
+
+.field-holder label.float-label.active {
+    margin-top: -13px;
+    font-size: 14px;
+    width: auto;
+    opacity: 0.5
+}
+
+@include media-breakpoint-down(sm) {
+    .field-holder label.float-label {
+        font-size: 16px;
+        padding-right: 20px;
+    }
+}
+
+.form-group-1 {padding: 0;margin: 0;}
+.form-group-1 .form-check{padding-left: 0;}
+.form-group-1 span.wpcf7-list-item {margin: 0;display: block;}
+.wpcf7-checkbox {}
+.form-group-1.form-group-inline span.wpcf7-list-item {display: inline-block; margin-right: 3vw;}
+.form-group-1 span.wpcf7-list-item label{margin:25px 0 0 0;display: block; font-weight: 500 }
+
+.wpcf7-list-item label span {position: relative;display: flex;cursor: pointer;display: flex; line-height: 1.2; font-size: 14px}
+.wpcf7-list-item label input[type="checkbox"], .wpcf7-list-item label input[type="radio"] { display: none; }
+.wpcf7-list-item label input[type="checkbox"]+span:before,
+.wpcf7-list-item label input[type="radio"]+span:before {
+    content: '';
+    border: 1px solid #fff;
+    width: 20px;
+    min-width: 20px;
+    height: 20px;
+    max-height: 20px;
+    display: inline-block;
+    margin-right: 20px;
+    transition: border 0.3s;
+    border-radius: 0px;
+    position: relative;
+    top: -3px;
+}
+
+.wpcf7-list-item label input[type="checkbox"]:hover+span:before,
+.wpcf7-list-item label input[type="radio"]:hover+span:before {}
+
+.wpcf7-list-item label input[type="checkbox"]+span:after,
+.wpcf7-list-item label input[type="radio"]+span:after {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    width: 16px;
+    height: 16px;
+    border-radius: 0px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22.828' height='15.747' viewBox='0 0 22.828 15.747'%3E %3Cpath id='Path_468' data-name='Path 468' d='M569.649%2C1879.556l7.109%2C7.352%2C12.891-13.333' transform='translate(-568.235 -1872.161)' fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3C/path%3E %3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 12px;
+    top: -2px;
+}
+
+.wpcf7-list-item label input[type="checkbox"]:checked+span:before,
+.wpcf7-list-item label input[type="radio"]:checked+span:before {
+    border-color: #fff
+}
+
+.wpcf7-list-item label input[type="checkbox"]:checked+span:after,
+.wpcf7-list-item label input[type="radio"]:checked+span:after {
+    content: '';
+    opacity: 1
+}
+.btn-form[type="submit"] {
+    -webkit-appearance: none;
+    transition: all 0.4s;
+    background-color: var(--bs-blue);
+    color: #fff;
+    box-shadow: none;
+    outline: none;
+    border: none;
+    width: 100%;
+}
+
+.btn-form[type="submit"]:hover {
+    background-color: var(--bs-cyan);
+}
+
+
+
+@include media-breakpoint-down(sm) {
+    .wpcf7-checkbox {display: block}
+    .form-group-1.form-group-inline span.wpcf7-list-item {display: block;margin-right: 30px;}
+    .form-group-1.form-group-inline span.wpcf7-list-item.last {margin-right: 0;}
+}
+
+.ff-form-success {
+    position: absolute;
+    z-index: 9;
+    inset: 0;
+    background: rgba(255,255,255,1);
+    color: var(--bs-blue);
+    @include font-size(2.5rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--padding-container);
+    border-radius: var(--bs-border-radius)
+}
+
+
+// Drag and drop
+.upload-area {
+    border: 2px dashed var(--bs-green);
+    cursor: pointer;
+    transition: background-color 0.4s;
+}
+.upload-area.dragover {
+    background-color: var(--bs-blue);
+}
+.hidden-input {
+    display: none;
+}
+
+.file-item span {
+    cursor: pointer;
+    color: red;
+    background-color: white;
+    margin-left: 10px;
+}
+
+
+.ff-errors {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ff-errors li {
+    position: relative;
+    margin-top: 10px;
+    font-size: 13px!important;
+    display: flex;
+    align-items: center;
+    font-style: italic;
+}
+
+.ff-errors li::before {
+    content: "";
+    position: relative;
+    top: -1px;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E %3Cg id='Group_527' data-name='Group 527' transform='translate(-96 -3173)'%3E %3Ccircle id='Ellipse_196' data-name='Ellipse 196' cx='9' cy='9' r='9' transform='translate(97 3174)' fill='%23fff'/%3E %3Cpath id='Path_26542' data-name='Path 26542' d='M12%2C2A10%2C10%2C0%2C1%2C0%2C22%2C12%2C9.991%2C9.991%2C0%2C0%2C0%2C12%2C2Zm5%2C13.59L15.59%2C17%2C12%2C13.41%2C8.41%2C17%2C7%2C15.59%2C10.59%2C12%2C7%2C8.41%2C8.41%2C7%2C12%2C10.59%2C15.59%2C7%2C17%2C8.41%2C13.41%2C12Z' transform='translate(94 3171)' fill='%23ea3323'/%3E %3C/g%3E %3C/svg%3E ");
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-right: 6px;
+
+}
+
+.recaptcha .float-label {
+    display: none!important;
+}
