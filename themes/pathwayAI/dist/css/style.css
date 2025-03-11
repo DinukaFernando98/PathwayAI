@@ -168,7 +168,6 @@ https://flickity.metafizzy.co
 .flickity-page-dot.is-selected {
   background: hsl(0, 0%, 20%);
 }
-@charset "UTF-8";
 /**
  * This injects Tailwind's base styles, which is a combination of
  * Normalize.css and some additional base styles.

@@ -1,87 +1,106 @@
-<footer class="footer-wrapper">
-    <div class="container">
-        <div class="footer">
-			<div class="logo">
-				<h1 class="mb-4">Logo</h1>
-				<p class="mb-8">A short snippet of text below the logo.</p>
-			</div>
-            <div class="footer-blocks">
-                <% if $getMainNavigation %>
-                    <div class="footer-block">
-                        <h2 class="footer-block__heading">Heading</h2>
-                        <nav>
-                            <ul>
-                                <% loop $getMainNavigation %>
-                                    <li class="footer-block__item">
-                                        <a href="$Link" class="footer-block__link">
-                                            $Title
-                                        </a>
-                                    </li>
-                                <% end_loop %>
-                            </ul>
-                        </nav>
+<!-- Footer -->
+<div class="container position-relative">
+    <div class="bg-bright-blue rounded rounded-4 p-4 p-md-5">
+        <div class="p-xl-3">
+            <div class="d-flex gap-4 align-items-lg-center flex-column flex-lg-row">
+                <div class="display-4 fw-light ms-2 mt-2 flex-grow-1"><strong class="fw-medium">Ready to get started? </strong>Discover Asset Guardian</div>
+                <div>
+                    <div class="d-inline-block">
+                        <a href="book-a-demo.html" class="btn blue px-5">
+                            <div class="button-fill"></div>
+                            <strong>
+                                <span data-hover="Book a demo">Book a demo</span>
+                            </strong>
+                        </a>
                     </div>
-                <% end_if %>
-                <% if $getMainNavigation %>
-                    <div class="footer-block">
-                        <h2 class="footer-block__heading">Heading</h2>
-                        <nav>
-                            <ul>
-                                <% loop $getMainNavigation %>
-                                    <li class="footer-block__item">
-                                        <a href="$Link" class="footer-block__link">
-                                            $Title
-                                        </a>
-                                    </li>
-                                <% end_loop %>
-                            </ul>
-                        </nav>
-                    </div>
-                <% end_if %>
-                <% if $getMainNavigation %>
-                    <div class="footer-block">
-                        <h2 class="footer-block__heading">Heading</h2>
-                        <nav>
-                            <ul>
-                                <% loop $getMainNavigation %>
-                                    <li class="footer-block__item">
-                                        <a href="$Link" class="footer-block__link">
-                                            $Title
-                                        </a>
-                                    </li>
-                                <% end_loop %>
-                            </ul>
-                        </nav>
-                    </div>
-                <% end_if %>
-				<% if $getMainNavigation %>
-					<div class="footer-block">
-						<h2 class="footer-block__heading">Heading</h2>
-						<nav>
-							<ul>
-								<% loop $getMainNavigation %>
-									<li class="footer-block__item">
-										<a href="$Link" class="footer-block__link">
-											$Title
-										</a>
-									</li>
-								<% end_loop %>
-							</ul>
-						</nav>
-					</div>
-				<% end_if %>
+                </div>
             </div>
-			<div class="footer-sidebar">
-
-			</div>
         </div>
-        <div class="copyright">
-            <section class="copyright__left">
-                &copy; $Now.Year - PathwayAI. All rights reserved.
-            </section>
-            <section class="copyright__right">
-                Website Design and Development by TSD Group 5
-            </section>
+    </div>
+    </div>
+<footer>
+    <section class="pb-5">
+        <div class="container">
+            <div class="mb-5 pb-4">
+                <a href="/" class="logo" title="Home" aria-label="Logo">
+				<!-- Logo -->
+				<a href="/" class="logo" title="Home" aria-label="Logo">
+                    <svg version="1.0" viewBox="40.941 141.6 299.25 90" xmlns="http://www.w3.org/2000/svg" style="max-height:500px" width="299.25" height="90">
+                        <defs><clipPath id="a"><path d="M53 152.438h20V173H53Zm0 0"/></clipPath><clipPath id="b"><path d="M101 152.438h21V173h-21Zm0 0"/></clipPath></defs>
+                        <path d="M71.668 184.39c-3.512-7.081-10.848-7.636-15.945-4.394-4.172 2.649-6.024 7.774-4.68 12.527a37.989 37.989 0 0 0 3.527 8.415 20.118 20.118 0 0 0 8.895 8.218c4.168 1.989 8.055 2.989 11.523 2.989 4.258 0 7.801-1.54 10.82-3.989-6.488-6.261-10.464-16.336-14.14-23.765Zm0 0" fill="#3a6fec"/><g clip-path="url(#a)"><path d="M72.64 162.258a9.844 9.844 0 0 1-.745 3.758 9.97 9.97 0 0 1-2.13 3.183 9.912 9.912 0 0 1-1.488 1.223 9.58 9.58 0 0 1-1.699.906 9.798 9.798 0 0 1-5.672.559 9.836 9.836 0 0 1-3.539-1.465 9.536 9.536 0 0 1-1.488-1.223 9.536 9.536 0 0 1-1.223-1.488 9.836 9.836 0 0 1-1.465-3.54 9.848 9.848 0 0 1-.191-1.913 9.888 9.888 0 0 1 1.656-5.457 9.912 9.912 0 0 1 1.223-1.488 9.97 9.97 0 0 1 3.184-2.129 9.836 9.836 0 0 1 7.515 0 9.86 9.86 0 0 1 4.406 3.617c.36.535.66 1.101.91 1.699.247.594.43 1.207.56 1.84.124.633.187 1.273.187 1.918Zm0 0" fill="#3a6fec"/></g>
+                        <path d="M118.645 179.996c-5.098-3.242-12.45-2.703-15.95 4.395-7.07 14.23-15.183 38.172-40.007 26.379a37.41 37.41 0 0 0 24.496 9.085c17.171 0 31.652-11.535 36.12-27.273 1.333-4.754-.492-9.937-4.66-12.586Zm0 0" fill="#d8f96f"/><g clip-path="url(#b)"><path d="M121.348 162.258a9.844 9.844 0 0 1-.746 3.758 9.95 9.95 0 0 1-.907 1.695 9.912 9.912 0 0 1-2.71 2.71 9.58 9.58 0 0 1-1.7.907 9.71 9.71 0 0 1-3.758.746 9.844 9.844 0 0 1-3.757-.746 9.683 9.683 0 0 1-1.696-.906 9.912 9.912 0 0 1-2.71-2.711 9.836 9.836 0 0 1 0-10.91 9.912 9.912 0 0 1 1.222-1.488 9.97 9.97 0 0 1 3.184-2.129 9.836 9.836 0 0 1 7.515 0 9.86 9.86 0 0 1 4.41 3.617 9.841 9.841 0 0 1 1.653 5.457Zm0 0" fill="#d8f96f"/></g>
+                        <path d="M145.148 173.125c1.468 0 2.816.227 4.046.672 1.239.45 2.313 1.086 3.22 1.906a8.54 8.54 0 0 1 2.109 2.89c.5 1.106.75 2.321.75 3.641 0 1.325-.25 2.54-.75 3.641a8.556 8.556 0 0 1-2.11 2.875c-.906.805-1.98 1.422-3.219 1.86-1.23.437-2.578.656-4.046.656h-3.032v4.203c0 .199-.062.36-.187.484-.125.125-.297.188-.516.188h-2.906c-.211 0-.375-.055-.5-.172a.672.672 0 0 1-.188-.5V173.78c0-.195.063-.351.188-.469a.703.703 0 0 1 .5-.187h2.984Zm-.297 14.39c.894 0 1.718-.124 2.468-.374a6.026 6.026 0 0 0 1.954-1.094c.55-.477.976-1.04 1.28-1.688.302-.644.454-1.363.454-2.156 0-.77-.152-1.476-.453-2.125a5.124 5.124 0 0 0-1.281-1.687 5.817 5.817 0 0 0-1.954-1.125 7.556 7.556 0 0 0-2.468-.391h-2.735v10.64ZM176.265 180.734c.145 0 .258.047.344.141.094.094.14.215.14.36v14.421a.483.483 0 0 1-.14.36.46.46 0 0 1-.344.125h-1.672c-.25 0-.422-.11-.515-.329l-.625-2.078a6.686 6.686 0 0 1-2.297 2.016c-.918.477-1.93.719-3.032.719-1.054 0-2.027-.2-2.921-.594a7.192 7.192 0 0 1-2.344-1.688 8.151 8.151 0 0 1-1.547-2.546c-.375-.977-.563-2.036-.563-3.172 0-1.176.18-2.254.547-3.235.375-.988.895-1.843 1.563-2.562a7.028 7.028 0 0 1 2.328-1.688c.894-.406 1.867-.609 2.922-.609 1.101 0 2.113.246 3.031.734a6.408 6.408 0 0 1 2.313 2.032l.625-2.063a.517.517 0 0 1 .515-.344Zm-7.437 11.97c.593 0 1.144-.11 1.656-.329.508-.219.96-.52 1.36-.906.394-.383.702-.832.921-1.344.227-.52.344-1.078.344-1.672 0-.613-.117-1.176-.344-1.687a4.358 4.358 0 0 0-.937-1.36 4.386 4.386 0 0 0-1.36-.922 4.164 4.164 0 0 0-1.656-.328c-.574 0-1.117.11-1.625.328-.5.22-.945.528-1.328.922-.375.387-.68.84-.906 1.36a4.25 4.25 0 0 0-.329 1.687c0 .594.11 1.152.329 1.672.226.512.535.96.921 1.344.383.386.829.687 1.329.906.507.219 1.05.328 1.625.328ZM191.225 192.875a.82.82 0 0 1 .5.156.486.486 0 0 1 .218.406v2.438c0 .18-.074.32-.218.437a.87.87 0 0 1-.547.172c-1.344 0-2.5-.234-3.469-.703a5.11 5.11 0 0 1-2.234-2.078c-.524-.926-.782-2.07-.782-3.437v-6.313h-1.765c-.305 0-.453-.148-.453-.453v-2.281c0-.313.148-.469.453-.469h1.765v-4.203c0-.281.13-.457.391-.531l2.906-.641c.352-.063.532.074.532.406v4.969h2.875c.289 0 .437.152.437.453v2.297c0 .305-.148.453-.437.453h-2.86v6.375c0 .856.239 1.496.719 1.922.488.418 1.145.625 1.969.625ZM206.91 180.39c1.195 0 2.227.274 3.094.813.863.531 1.523 1.293 1.984 2.281.469.993.703 2.168.703 3.532v8.656c0 .312-.164.469-.484.469h-2.875c-.324 0-.484-.157-.484-.47v-8.437c0-.988-.262-1.789-.782-2.406-.511-.625-1.289-.937-2.328-.937-.68 0-1.273.156-1.781.468-.5.313-.89.73-1.172 1.25a3.521 3.521 0 0 0-.406 1.688v8.39c0 .305-.156.454-.469.454h-2.922c-.305 0-.453-.149-.453-.454v-22.14c0-.3.148-.453.453-.453h2.922c.313 0 .469.152.469.453v9.11a5.513 5.513 0 0 1 1.953-1.641c.8-.414 1.66-.625 2.578-.625ZM242.357 180.734c.133 0 .25.063.344.188.093.125.085.293-.016.5l-6.703 14.625a.624.624 0 0 1-.281.312.731.731 0 0 1-.407.125h-.468a.771.771 0 0 1-.407-.125.7.7 0 0 1-.265-.312l-3.938-9.563-3.937 9.563a.614.614 0 0 1-.266.312.792.792 0 0 1-.406.125h-.36a.754.754 0 0 1-.421-.125.81.81 0 0 1-.282-.312l-6.781-14.625c-.105-.207-.11-.375-.016-.5s.207-.188.344-.188h3.11c.132 0 .257.043.375.125a.774.774 0 0 1 .25.313l3.734 8.719 3.61-8.72a.932.932 0 0 1 .25-.312.559.559 0 0 1 .359-.125h.89c.133 0 .254.043.36.125a.982.982 0 0 1 .25.313l3.672 8.89 3.656-8.89a.85.85 0 0 1 .265-.313.608.608 0 0 1 .36-.125ZM262.467 180.734c.145 0 .258.047.344.141.094.094.14.215.14.36v14.421a.483.483 0 0 1-.14.36.46.46 0 0 1-.344.125h-1.671c-.25 0-.422-.11-.516-.329l-.625-2.078a6.686 6.686 0 0 1-2.297 2.016c-.918.477-1.93.719-3.031.719-1.055 0-2.028-.2-2.922-.594a7.192 7.192 0 0 1-2.344-1.688 8.151 8.151 0 0 1-1.547-2.546c-.375-.977-.562-2.036-.562-3.172 0-1.176.18-2.254.547-3.235.375-.988.894-1.843 1.562-2.562a7.028 7.028 0 0 1 2.328-1.688c.895-.406 1.867-.609 2.922-.609 1.102 0 2.113.246 3.031.734a6.408 6.408 0 0 1 2.313 2.032l.625-2.063a.517.517 0 0 1 .516-.344Zm-7.437 11.97c.594 0 1.144-.11 1.656-.329.508-.219.961-.52 1.36-.906.394-.383.703-.832.921-1.344.227-.52.344-1.078.344-1.672 0-.613-.117-1.176-.344-1.687a4.358 4.358 0 0 0-.937-1.36 4.386 4.386 0 0 0-1.36-.922 4.164 4.164 0 0 0-1.656-.328c-.574 0-1.117.11-1.625.328-.5.22-.945.528-1.328.922-.375.387-.68.84-.906 1.36a4.25 4.25 0 0 0-.328 1.687c0 .594.11 1.152.328 1.672.226.512.535.96.922 1.344.383.386.828.687 1.328.906.508.219 1.05.328 1.625.328ZM283.615 180.75c.144 0 .254.059.328.172.082.117.086.262.015.437l-6.062 14.344-2.469 5.969c-.117.27-.305.406-.562.406h-2.5c-.243 0-.418-.058-.532-.172-.105-.117-.101-.32.016-.61l2.297-5.702-6-14.235c-.082-.175-.082-.32 0-.437a.376.376 0 0 1 .312-.172h3.141a.71.71 0 0 1 .39.125.62.62 0 0 1 .25.312l3.797 9.891 3.813-9.89a.714.714 0 0 1 .25-.313.648.648 0 0 1 .39-.125ZM309.394 195.39c.094.22.094.403 0 .547-.086.149-.25.22-.5.22h-3.266a.664.664 0 0 1-.453-.173 1.085 1.085 0 0 1-.312-.422l-.922-2.234h-10.578l-.922 2.219c-.075.168-.18.308-.313.422a.656.656 0 0 1-.469.172h-3.25c-.25 0-.421-.067-.515-.204-.094-.144-.094-.332 0-.562l9.797-21.969c.082-.176.203-.316.36-.422a.815.815 0 0 1 .483-.172h.188a.8.8 0 0 1 .5.172c.144.118.258.262.344.438Zm-14.531-5.734h7.562l-3.766-9.156ZM320.29 173.61v22.03c0 .337-.173.5-.517.5h-3.265c-.336 0-.5-.163-.5-.5v-22.03c0-.344.164-.516.5-.516h3.265c.344 0 .516.172.516.515Zm0 0" fill="#fff"/>
+                    </svg>
+
+                </a>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <ul class="list-unstyled">
+                        <li class="fs-3 fw-light"><a href=""><span>Product</span></a></li>
+                        <li class="fs-3 fw-light"><a href=""><span>Solutions</span></a></li>
+                        <li class="fs-3 fw-light"><a href=""><span>Who it’s for</span></a></li>
+                        <li class="fs-3 fw-light"><a href=""><span>Resources</span></a></li>
+                    </ul>
+                    <hr class="my-5 d-lg-none">
+                </div>
+                <div class="col-lg-8 d-flex justify-content-lg-end">
+                    <div class="d-md-flex gap-5 w-100 justify-content-between justify-content-lg-end">
+                        <div class="col-lg-3">
+                            <div class="fw-semibold mb-4">Asset Guardian</div>
+                            <ul class="list-unstyled mb-5">
+                                <li><a href=""><span>Why Us</span></a></li>
+                                <li><a href=""><span>Careers</span></a></li>
+                                <li><a href=""><span>Trust and Security</span></a></li>
+                                <li><a href=""><span>ESG and C</span></a></li>
+                            </ul>
+                        </div>
+                        <div class="">
+                            <div class="fw-semibold mb-4">Contact Us</div>
+                            <p class="mb-2">Sales and product information: </p>
+                            <ul class="list-unstyled mb-4 text-nowrap">
+                                <li><a href="+441313763500"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path id="Path_110" data-name="Path 110" d="M9.286,11.429,11,9.857a.525.525,0,0,1,.429-.143l.286.143,4,1.857c.286.143.286.286.286.571a3.622,3.622,0,0,1-1.143,2.571,4.092,4.092,0,0,1-3,1.143,8.7,8.7,0,0,1-4-1,18.727,18.727,0,0,1-4-2.857A24.333,24.333,0,0,1,1.714,9,19.747,19.747,0,0,1,.286,5.857,8.791,8.791,0,0,1,0,3.143,3.754,3.754,0,0,1,1,1,4.344,4.344,0,0,1,3.714,0a.742.742,0,0,1,.571.286l2.143,4a.5.5,0,0,0,.143.286A.525.525,0,0,1,6.429,5L4.571,6.714a.638.638,0,0,0,0,.714A13.642,13.642,0,0,0,6.286,9.714a14.424,14.424,0,0,0,2.286,1.857C8.857,11.714,9.143,11.714,9.286,11.429Z" transform="translate(0 0)" fill="#d8f96f"/></svg><span>+44(0)131 376 3500</span></a></li>
+                                <li><a href="mailto:sales@assetguardian.com"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12"><path id="Path_50" data-name="Path 50" d="M14,2H2L8,7ZM0,2A2.006,2.006,0,0,1,2,0H14a2.006,2.006,0,0,1,2,2v8a2.006,2.006,0,0,1-2,2H2a2.006,2.006,0,0,1-2-2Z" fill="#d8f96f" fill-rule="evenodd"/></svg><span>sales@assetguardian.com</span></a></li>
+                            </ul>
+                            <p class="mb-2">Support:</p>
+                            <ul class="list-unstyled mb-5 text-nowrap">
+                                <li><a href="mailto:support@assetguardian.com"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12"><path id="Path_50" data-name="Path 50" d="M14,2H2L8,7ZM0,2A2.006,2.006,0,0,1,2,0H14a2.006,2.006,0,0,1,2,2v8a2.006,2.006,0,0,1-2,2H2a2.006,2.006,0,0,1-2-2Z" fill="#d8f96f" fill-rule="evenodd"/></svg><span>support@assetguardian.com</span></a></li>
+                            </ul>
+                        </div>
+                        <div class="">
+                            <div class="fw-semibold mb-4">Connect</div>
+                            <div class="d-flex gap-4">
+                                <div>
+                                    <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="18.341" height="16.578" viewBox="0 0 18.341 16.578"><path id="Path_26311" data-name="Path 26311" d="M3.284,1.6H4.956L15.016,14.9H13.457ZM14.444,0,9.81,5.3,5.8,0H0L6.934,9.068.362,16.579H3.176l5.072-5.8,4.433,5.8h5.66L11.113,7.023,17.257,0Z" transform="translate(0 -0.001)" fill="currentColor"/></svg></a>
+                                </div>
+                                <div>
+                                    <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="16.075" height="15.918" viewBox="0 0 16.075 15.918"><path id="Path_26467" data-name="Path 26467" d="M0,0H3.446V10.614H0Z" transform="translate(0.091 5.304)" fill="currentColor"/><path id="Path_19" data-name="Path 19" d="M2364.048,16.763a1.738,1.738,0,0,0-1.814,1.857,1.739,1.739,0,0,0,1.791,1.834,1.846,1.846,0,1,0,.022-3.691" transform="translate(-2362.234 -16.763)" fill="currentColor"/><path id="Path_20" data-name="Path 20" d="M2414.373,58.246a4.1,4.1,0,0,0-3.107,1.356V58.5h-3.447V69.11h3.447v-5.92a2.365,2.365,0,0,1,.136-.862,1.839,1.839,0,0,1,1.746-1.292c1.247,0,1.746.975,1.746,2.4V69.11h3.447v-6.1c0-3.265-1.7-4.762-3.968-4.762" transform="translate(-2402.266 -53.192)" fill="currentColor"/></svg></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr class="my-0">
+    <div class="py-4 footer-bottom">
+        <div class="container">
+            <div class="row gx-lg-4 align-items-center">
+                <div class="col-lg-4">
+                    <div class="me-4">Copyright © 2024 Asset Guardian</div>
+                </div>
+                <div class="col-lg-4 d-flex align-items-center justify-content-lg-center ">
+                    <ul class="list-unstyled d-flex gap-4 mb-1">
+                        <li><a href=""><span>Terms and Conditions</span></a></li>
+                        <li><a href=""><span>Privacy</span></a></li>
+                        <li><a href=""><span>Accessibility</span></a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+                    <div>Website Design and Development by TSD Group 5</div>
+                </div>
+            </div>
         </div>
     </div>
 </footer>

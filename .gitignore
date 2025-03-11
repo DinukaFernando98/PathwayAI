@@ -12,3 +12,5 @@
 /themes/**/node_modules/
 /silverstripe-cache/
 /themes/**/build/
+/themes/**/img/
+/themes/**/vid/
