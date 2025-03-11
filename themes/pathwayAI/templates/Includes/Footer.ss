@@ -76,8 +76,12 @@
     <div class="py-4 footer-bottom">
         <div class="container">
             <div class="row gx-lg-4 align-items-center">
-                <div class="text-center mt-4 mt-lg-0">
-                    <div>Copyright © 2025 PathwayAI. Website Design and Development by TSD Group 5</div>
+                <div class="col-lg-4">
+                    <div class="me-4">Copyright © 2025 PathwayAI</div>
+                </div>
+                <div class="col-lg-4 d-flex align-items-center justify-content-lg-center "></div>
+                <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+                    <div>Website Design and Development by TSD Group 5</div>
                 </div>
             </div>
         </div>
