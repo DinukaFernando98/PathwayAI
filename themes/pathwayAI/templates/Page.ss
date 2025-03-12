@@ -22,7 +22,7 @@
     </style>
 
     <link rel="stylesheet" href="https://use.typekit.net/jrj7ops.css">
-    <link rel="stylesheet" type="text/css" href="/_resources/themes/pathwayAI/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="$ThemeDir/css/bootstrap.css" />
 
 </head>
 
@@ -37,8 +37,8 @@
 
 <% include Footer %>
 
-<script type="application/javascript" src="/_resources/themes/pathwayAI/js/all.js"></script>
-<script type="module" src="/_resources/themes/pathwayAI/js/main.js"></script>
+<script type="application/javascript" src="$ThemeDir/js/all.js"></script>
+<script type="module" src="$ThemeDir/js/main.js"></script>
 
 </body>
 </html>

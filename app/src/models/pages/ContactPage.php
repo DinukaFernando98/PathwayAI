@@ -1,6 +1,6 @@
 <?php
 
-namespace PathwayAI\Models;
+namespace PathwayAI\Models\Page;
 
 use PathwayAI\Controllers\ContactPageController;
 
