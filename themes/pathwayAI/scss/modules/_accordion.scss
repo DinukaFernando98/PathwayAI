@@ -1,0 +1,44 @@
+
+
+.accordion { margin: 0 auto; padding: 0; list-style: none; }
+.accordion > li { position: relative;margin:0;padding: 0;}
+
+
+.accordion li > a { display: block; width: 100%; cursor: pointer; position: relative; text-decoration: none;padding:40px 45px 40px 0; transition:color 0.4s}
+.accordion li > a:hover, .accordion li.active > a{
+    //color: #fff;
+
+}
+.accordion li > a:after {  height: 30px;  width: 30px;  position: absolute;  right: 0;  content: " ";  top: 35px; right: 10px;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30.001' height='29.998' viewBox='0 0 30.001 29.998'%3E %3Cpath id='Path_26740' data-name='Path 26740' d='M11019%2C8269.771a15%2C15%2C0%2C1%2C1%2C10.607-4.393A14.912%2C14.912%2C0%2C0%2C1%2C11019%2C8269.771Zm-3.421-17.654h0L11014%2C8253.7l5.5%2C5.5%2C5.5-5.5-1.578-1.581-3.921%2C3.924-3.921-3.924Z' transform='translate(-11003.999 -8239.772)' fill='%23d8f96f'/%3E %3C/svg%3E ");
+    background-repeat: no-repeat;
+    background-position:center;  
+    background-size: cover;
+    transition: transform 0.2s, background-image 0.4s, scale 0.4s ; 
+    cursor: pointer;
+}
+
+.accordion li > a:hover:after {
+    scale: 1.1;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30.001' height='29.998' viewBox='0 0 30.001 29.998'%3E %3Cpath id='Path_26740' data-name='Path 26740' d='M11019%2C8269.771a15%2C15%2C0%2C1%2C1%2C10.607-4.393A14.912%2C14.912%2C0%2C0%2C1%2C11019%2C8269.771Zm-3.421-17.654h0L11014%2C8253.7l5.5%2C5.5%2C5.5-5.5-1.578-1.581-3.921%2C3.924-3.921-3.924Z' transform='translate(-11003.999 -8239.772)' fill='%23fff'/%3E %3C/svg%3E ");
+}
+.accordion > li.active a:after { transform: rotate(180deg) }
+
+    .accordion > li:after {content: ''; position: absolute;bottom: 0;left: 0;right: 0;height: 1px;background-color: #fff;transform-origin:left; transition:opacity 0.4s}
+
+.accordion-item { display: none;padding: 0; 
+    @include padding(0 0 4.2rem 0);
+    top:0; position: relative; opacity: 0; transition:opacity 0.4s 0s }
+.active .accordion-item { opacity: 1;transition:opacity 0.4s 0s }
+
+@include media-breakpoint-down(md) { 
+    .accordion .accordion-heading { padding: 30px 30px 30px 0;}
+    .accordion li > a .accordion-heading:before {display: none;}
+    .accordion-item {padding: 10px 0;top:-20px;}
+    .accordion li > a:after {right: 0; top: 25px;}
+
+    .accordion li > a {padding:30px 35px 30px 0; }
+}
+
+
+
