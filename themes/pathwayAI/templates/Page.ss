@@ -26,16 +26,20 @@
 
 </head>
 
-<body class="$ClassName no-transition">
+<body>
 
-<% include Nav %>
+<div data-barba="wrapper">
 
-<main class="min-vh-100" data-barba="container" data-barba-namespace="">
-    <div class="transition-layer"></div>
-    $Layout
-</main>
+    <% include Nav %>
 
-<% include Footer %>
+    <main class="min-vh-100" data-barba="container" data-barba-namespace="">
+        <div class="transition-layer"></div>
+        $Layout
+    </main>
+
+    <% include Footer %>
+
+</div>
 
 <script type="application/javascript" src="$ThemeDir/js/all.js"></script>
 <script type="module" src="$ThemeDir/js/main.js"></script>
