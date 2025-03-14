@@ -2,6 +2,8 @@
 
 namespace PathwayAI\Partials;
 
+use SilverStripe\Assets\File;
+use SilverStripe\Assets\Image;
 use SilverStripe\ORM\DataObject;
 
 class User extends DataObject
@@ -12,7 +14,18 @@ class User extends DataObject
         'FirstName' => 'Varchar',
         'LastName' => 'Varchar',
         'Email' => 'Varchar(255)',
-        'Phone' => 'Varchar'
+        'Phone' => 'Varchar',
+        'Password' => 'Varchar(255)'
+    ];
+
+    private static $has_one = [
+        'ProfilePhoto' => Image::class,
+        'CV' => File::class
+    ];
+
+    private static $owns = [
+        'ProfilePhoto',
+        'CV'
     ];
     
     private static $has_many = [

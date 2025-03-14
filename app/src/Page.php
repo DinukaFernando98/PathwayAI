@@ -24,7 +24,7 @@ namespace {
             $fields = parent::getCMSFields();
 
 			$fields->addFieldsToTab('Root.Hero', [
-                HTMLEditorField::create('Heading', 'Heading'),
+                HTMLEditorField::create('Heading', 'Heading')->setRows(4),
                 TextField::create('Subheading', 'Subheading')
 			]);
 

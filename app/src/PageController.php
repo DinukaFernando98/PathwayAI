@@ -2,6 +2,7 @@
 
 namespace {
 
+    use PathwayAI\Partials\User;
     use SilverStripe\CMS\Controllers\ContentController;
     use SilverStripe\Core\Environment;
     use SilverStripe\View\Requirements;
@@ -39,7 +40,30 @@ namespace {
 
             $theme = SSViewer::get_themes();
             $theme = reset($theme);
+
+			$this->customise([
+				'IsLoggedIn' => $this->isLoggedIn(),
+				'LoggedInUser' => $this->getLoggedInUser()
+			]);
 		}
+
+		// check if the user is logged in
+		public function isLoggedIn()
+		{
+			$session = $this->getRequest()->getSession();
+			return $session->get('LoggedInUserID') ? true : false;
+		}
+
+		public function getLoggedInUser()
+		{
+			$session = $this->getRequest()->getSession();
+			$userID = $session->get('LoggedInUserID');
+			if ($userID) {
+				return User::get()->byID($userID);
+			}
+			return null;
+		}
+
 
         public function getMainNavigation()
         {
