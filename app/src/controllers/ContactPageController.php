@@ -26,27 +26,37 @@ class ContactPageController extends \PageController
 
 	public function ContactForm()
 	{
-		$fields = new FieldList(
-			$name = new TextField('Name', 'Name*'),
-			$telephone_number = new TextField('TelephoneNumber', 'Phone*'),
-			$email_address = new EmailField('Email', 'Email*'),
-			$subject = new TextField('Subject', 'Subject*'),
-			$message = new TextareaField('Message', 'Message*')
+		$fields = FieldList::create(
+			TextField::create('Name', 'Name*')
+				->setAttribute('class', 'form-control')
+				->setAttribute('required', true),
+		
+			TextField::create('TelephoneNumber', 'Phone*')
+				->setAttribute('class', 'form-control')
+				->setAttribute('required', true),
+		
+			EmailField::create('Email', 'Email*')
+				->setAttribute('class', 'form-control')
+				->setAttribute('required', true),
+		
+			TextField::create('Subject', 'Subject*')
+				->setAttribute('class', 'form-control')
+				->setAttribute('required', true),
+		
+			TextareaField::create('Message', 'Message*')
+				->setAttribute('class', 'form-control')
+				->setAttribute('rows', 4)
+				->setAttribute('required', true)
 		);
-
-		$name->setAttribute('placeholder', 'Name');
-		$telephone_number->setAttribute('placeholder', 'Phone');
-		$email_address->setAttribute('placeholder', 'Email');
-		$subject->setAttribute('placeholder', 'Subject');
-		$message->setAttribute('placeholder', 'Message');
-
-		$actions = new FieldList(
-			new FormAction('submit', 'Send Message')
+		
+		$actions = FieldList::create(
+			FormAction::create('submit', 'Send Message')
+				->setAttribute('class', 'mt-5 btn-form btn blue')
 		);
 
 		$validator = RequiredFields::create('Name', 'TelephoneNumber', 'Email', 'Subject', 'Message');
 
-		$form = Form::create($this, 'ContactForm', $fields, $actions, $validator)->enableSpamProtection();
+		$form = Form::create($this, 'ContactForm', $fields, $actions, $validator);
 
 		return $form;
 	}
@@ -68,15 +78,11 @@ class ContactPageController extends \PageController
         ";
 
 		$email->setBody($messageBody);
-		$email->send();
+		//$email->send();
 		$enquiry = Enquiry::create($data);
 		$enquiry->write();
 
-		$this->redirect($this->Link("/?success=contact"));
+		$this->redirect("/thank-you-for-your-enquiry");
 	}
 
-	public function Success()
-	{
-		return isset($_REQUEST['success']) && $_REQUEST['success'] == "contact";
-	}
 }
