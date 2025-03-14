@@ -1,3 +1,4 @@
+<% if $ClassName == 'PathwayAI\Models\Page\HomePage' %>
 <!-- Hero_Homepage -->
 <div class="min-vh-100 d-flex justify-content-center flex-column position-relative">
     <div class="video-bg w-100 mask-bottom heroScrubAnimation">
@@ -62,3 +63,27 @@
     </div>
     <div class="py-5 py-sm-4"></div>
 </div>
+
+<% else %>
+
+<!-- Hero_single -->
+<div class="d-flex justify-content-center flex-column position-relative">
+    <div class="image-bg w-100  mask-bottom heroScrubAnimation">
+        <% if $Image %>
+            <img src="$Event.Image.URL" class="opacity-25">
+        <% else %>
+            <img src="$ThemeDir/img/placeholders/event-single.jpg" class="opacity-25">
+        <% end_if %>
+    </div>
+    <section class="container position-relative text-center">
+        <div class="grid">
+            <div class="g-start-1 g-col-12    g-start-lg-2  g-col-lg-10  g-start-xxl-3 g-col-xxl-8">
+                <div class="spacer"></div>
+                <h2 class="h1" anim-chars="" text-split=""><% if $Heading %> $Heading <% else %> $Title <% end_if %></h2>
+                <p anim-chars="" text-split=""><em>$Subheading</em></p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<% end_if %>

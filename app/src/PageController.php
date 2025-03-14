@@ -4,7 +4,6 @@ namespace {
 
     use SilverStripe\CMS\Controllers\ContentController;
     use SilverStripe\Core\Environment;
-    use SilverStripe\Core\Manifest\ModuleResourceLoader;
     use SilverStripe\View\Requirements;
     use SilverStripe\View\SSViewer;
 
@@ -31,14 +30,16 @@ namespace {
 		{
 			parent::init();
 			$env_type = Environment::getEnv('SS_ENVIRONMENT_TYPE');
-		}
 
-		public function getThemeDir()
-        {
+            if ($env_type == 'live') {
+                $file_dir = 'build';
+            } else {
+                $file_dir = 'dist';
+            }
+
             $theme = SSViewer::get_themes();
-            $theme = reset($theme); // Get the active theme name
-            return ModuleResourceLoader::resourceURL("themes/{$theme}");
-        }
+            $theme = reset($theme);
+		}
 
         public function getMainNavigation()
         {

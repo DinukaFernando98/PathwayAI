@@ -6,30 +6,26 @@ namespace {
 	use SilverStripe\Assets\Image;
 	use SilverStripe\CMS\Model\SiteTree;
     use SilverStripe\Forms\CheckboxField;
+    use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+    use SilverStripe\Forms\TextField;
 
     class Page extends SiteTree
     {
 
         private static $db = [
+            'Heading' => 'HTMLText',
+            'Subheading' => 'Varchar',
             'ShowInMainNav' => 'Boolean',
             'ShowInFooterNav' => 'Boolean'
         ];
-
-		private static $has_one = [
-			'Image' => Image::class
-		];
-
-		private static $owns = [
-			'Image'
-		];
 
         public function getCMSFields()
         {
             $fields = parent::getCMSFields();
 
 			$fields->addFieldsToTab('Root.Hero', [
-				UploadField::create('Image', 'Image')
-					->setFolderName('HeroImages')
+                HTMLEditorField::create('Heading', 'Heading'),
+                TextField::create('Subheading', 'Subheading')
 			]);
 
             return $fields;

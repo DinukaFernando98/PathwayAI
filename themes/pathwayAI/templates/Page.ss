@@ -32,7 +32,7 @@
 
     <% include Nav %>
 
-    <main class="min-vh-100" data-barba="container" data-barba-namespace="">
+    <main data-barba="container" data-barba-namespace="">
         <div class="transition-layer"></div>
         $Layout
     </main>
