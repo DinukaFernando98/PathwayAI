@@ -2,17 +2,18 @@
 
 namespace PathwayAI\Admin;
 
+use PathwayAI\Partials\User;
 use SilverStripe\Admin\ModelAdmin;
 use PathwayAI\Partials\Enquiry;
 
-class EnquiryAdmin extends ModelAdmin
+class UsersAdmin extends ModelAdmin
 {
-	private static $menu_title = 'Enquiries';
+	private static $menu_title = 'Users';
 
-	private static $url_segment = 'enquiries';
+	private static $url_segment = 'users';
 
 	private static $managed_models = [
-		Enquiry::class
+		User::class
 	];
 
 	private static $menu_priority = 6;
