@@ -49,18 +49,39 @@
 		<div class="border-top border-bottom" style="--bs-border-color:var(--bs-green)"></div>
 		<div class="min-vh-100">
 			<div class="row g-4 mt-5">
-
-				<div class="col-sm-6 col-xl-4 load-more-item">
-					<a href="" class="d-block h-100 d-flex flex-column rounded card-2">
-						<div>
-							<div class="ratio overflow-hidden" style="--bs-aspect-ratio: 59.7%;--bs-aspect-ratio-mobile: 59.7%;">
-								<picture>
-									<img data-src="$ThemeDir/img/placeholders/news-6.jpg" class="lazy blur zoom-on-hover mx-auto" alt="" title="">
-								</picture>
+				<% loop $getEvents %>
+					<div class="col-sm-6 col-xl-4 load-more-item">
+						<a href="/event/$ObfuscatedID" class="d-block h-100 d-flex flex-column rounded card-2">
+							<div class="h-100 d-flex flex-column p-4 p-xxl-5">
+								<div class="flex-grow-1">
+									<div class="d-flex flex-wrap gap-1 mb-4">
+										<p class="fw-semibold text-green mb-0">$Type | <% if $Date %> $FormattedDate <% else %> Date TBA <% end_if %></p>                                        
+									</div>
+									<p class="fs-5 fw-semibold lh-sm mb-4"><span class="underline-on-hover">$Title</span></p>
+									<p class=""><span class="underline-on-hover">$Company.Name</span></p>
+								</div>
+								<p class="mb-1 lh-sm fw-semibold d-flex align-items-center bt">
+									<span class="me-2">Read more</span>
+									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+										<circle id="Ellipse_167" data-name="Ellipse 167" cx="10" cy="10" r="10" fill="#d8f96f"/>
+										<path id="arrow_back_FILL0_wght500_GRAD0_opsz24" d="M159.213-802.438,155.88-799.1l.989.974,5-5-5-5-.989.974,3.333,3.333h-7.344v1.387Z" transform="translate(-146.869 813.131)"/>
+									</svg>
+								</p>
 							</div>
-						</div>
-					</a>
-				</div>
+							<div>
+								<div class="ratio overflow-hidden" style="--bs-aspect-ratio: 59.7%;--bs-aspect-ratio-mobile: 59.7%;">
+									<picture>
+										<% if $Image %>
+											<img data-src="$Image.URL" class="lazy blur zoom-on-hover mx-auto" alt="" title="">
+										<% else %>
+											<img data-src="$ThemeDir/img/placeholders/event-single.jpg" class="lazy blur zoom-on-hover mx-auto" alt="" title="">
+										<% end_if %>
+									</picture>
+								</div>
+							</div>
+						</a>
+					</div>
+				<% end_loop %>
 
 			</div>
 		</div>
@@ -86,5 +107,3 @@
 		</div>
 	</div>
 </section>
-</main>
-</div>

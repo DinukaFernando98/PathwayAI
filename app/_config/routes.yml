@@ -1,2 +1,5 @@
 SilverStripe\Control\Director:
   rules:
+    'event/$ObfuscatedID': 'PathwayAI\Controllers\EventController'
+    'register/$ObfuscatedID': 'PathwayAI\Controllers\RegisterPageController'
+  

@@ -2,6 +2,7 @@
 
 namespace PathwayAI\Controllers;
 
+use PathwayAI\Partials\Event;
 class EventsPageController extends \PageController
 {
 	public function index()
@@ -11,4 +12,9 @@ class EventsPageController extends \PageController
 			'Page'
 		]);
 	}
+
+	public function getEvents()
+    {
+        return Event::get();
+    }
 }
