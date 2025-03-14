@@ -9,7 +9,7 @@
         <h1 class="display-3 pb-xl-2 mx-auto" style="max-width: 22ch;" anim-chars="" text-split="">Your Ultimate Career <strong>Companion.</strong></h1>
         <p class="h5 mb-6 pb-xl-4" anim-fade="">Explore top courses, job fairs, university programs, and career opportunities.</p>
         <div class="d-md-inline-flex flex-column flex-md-row justify-content-center text-start text-md-center link-list-1 user-select-none" anim-fade="">
-            <a href="cyber-security.html">
+            <a href="/courses">
                 <span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44">
                         <path d="M4,44H-4V0H4Z" transform="translate(4)" fill="currentColor"/>
@@ -26,7 +26,7 @@
                 </div>
             </a>
             <div class="seperator">&nbsp;</div>
-            <a href="configuration-change.html">
+            <a href="/job-portal">
                 <span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="54" height="47" viewBox="0 0 54 47">
                         <path d="M13.5,0,27,24H0Z" transform="translate(0 23)" fill="currentColor"/>
@@ -43,7 +43,7 @@
                 </div>
             </a>
             <div class="seperator">&nbsp;</div>
-            <a href="obsolescence.html">
+            <a href="/events">
                 <span> 
                     <svg xmlns="http://www.w3.org/2000/svg" width="76" height="20" viewBox="0 0 76 20">
                         <path d="M10,0A10,10,0,1,1,0,10,10,10,0,0,1,10,0Z" fill="currentColor"/>

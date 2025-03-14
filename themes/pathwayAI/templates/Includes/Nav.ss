@@ -16,42 +16,61 @@
 
 			<ul class="nav nav-primary">
 				<li data-barba-update>
-					<a href="/about"><em><span data-hover="About">About</span></em></a>
+					<a class="pt-lg-0" href="/about"><em><span data-hover="About">About</span></em></a>
 				</li>
 				<li data-barba-update>
-					<a href="/courses"><em><span data-hover="Courses">Courses</span></em></a>
+					<a class="pt-lg-0" href="/courses"><em><span data-hover="Courses">Courses</span></em></a>
 				</li>
 				<li data-barba-update>
-					<a href="/job-portal"><em><span data-hover="Job Portal">Job Portal</span></em></a>
+					<a class="pt-lg-0" href="/job-portal"><em><span data-hover="Job Portal">Job Portal</span></em></a>
 				</li>
 				<li data-barba-update>
-					<a href="/events"><em><span data-hover="Events">Events</span></em></a>
+					<a class="pt-lg-0" href="/events"><em><span data-hover="Events">Events</span></em></a>
 				</li>
 				<li data-barba-update>
-					<a href="/contact"><em><span data-hover="Contact">Contact</span></em></a>
+					<a class="pt-lg-0" href="/contact"><em><span data-hover="Contact">Contact</span></em></a>
 				</li>
 				<li class="menu-to-right d-lg-none">
 					<div class="container mt-5">
 						<div class="mx-auto" style="max-width: 300px;">
-							<a href="/my-profile" class="btn sm">
-								<div class="button-fill"></div>
-								<strong>
-									<span data-hover="My Profile">My Profile</span>
-								</strong>
-							</a>
+							<% if IsLoggedIn %>
+								<a href="/my-profile" class="btn sm">
+									<div class="button-fill"></div>
+									<strong>
+										<span data-hover="My Profile">My Profile</span>
+									</strong>
+								</a>
+							<% else %>
+								<a href="/sign-in" class="btn sm">
+									<div class="button-fill"></div>
+									<strong>
+										<span data-hover="Sign In">Sign In</span>
+									</strong>
+								</a>
+							<% end_if %>
 						</div>
 					</div>
 				</li>
 			</ul>
 
 			<!-- CTA -->
-			<div class="d-none d-lg-inline-block">
-				<a href="/my-profile" class="btn sm">
-					<div class="button-fill"></div>
-					<strong>
-						<span data-hover="My Profile">My Profile</span>
-					</strong>
-				</a>
+			<div class="d-none d-lg-flex align-items-center">
+				<% if IsLoggedIn %>
+					<a href="/sign-out" style="text-decoration: none; margin-right: 1rem;">Sign out</a>
+					<a href="/my-profile" class="btn sm">
+						<div class="button-fill"></div>
+						<strong>
+							<span data-hover="My Profile">My Profile</span>
+						</strong>
+					</a>
+				<% else %>
+					<a href="/sign-in" class="btn sm">
+						<div class="button-fill"></div>
+						<strong>
+							<span data-hover="Sign In">Sign In</span>
+						</strong>
+					</a>
+				<% end_if %>
 			</div>
 
 		</div>
