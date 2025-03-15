@@ -16,35 +16,56 @@ class QuizPageController extends \PageController
 {
 	public function index()
 	{
-        $user = $this->getLoggedInUser();
-		
-        $quizSubmission = null;
-        $quizScore = null;
-        $quizTotalQuestions = null;
-        $quizCompleted = false;
+		$user = $this->getLoggedInUser();
 
-        if ($user) {
-            $quizSubmission = QuizSubmission::get()
-                ->filter('UserID', $user->ID)
-                ->filter('QuizPageID', $this->ID)
-                ->sort('SubmittedDate', 'DESC')
-                ->first();
-
-            if ($quizSubmission) {
-                $quizScore = $quizSubmission->Score;
-                $quizTotalQuestions = $this->getQuestions()->count();
-                $quizCompleted = true;
-            }
-        }
-
-        return $this->renderWith([
-            'QuizPage',
-            'Page'
-        ], [
-            'quiz_score' => $quizScore,
-            'quiz_total_questions' => $quizTotalQuestions,
-            'quiz_completed' => $quizCompleted
-        ]);
+		// Default values
+		$quizSubmission = null;
+		$quizScore = null;
+		$quizTotalQuestions = null;
+		$quizCompleted = false;
+		$percentage = 0;
+		$grade = 'F';
+	
+		if ($user) {
+			$quizSubmission = QuizSubmission::get()
+				->filter('UserID', $user->ID)
+				->filter('QuizPageID', $this->ID)
+				->sort('SubmittedDate', 'DESC')
+				->first();
+	
+			if ($quizSubmission) {
+				$quizScore = $quizSubmission->Score;
+				$quizTotalQuestions = $this->getQuestions()->count();
+				$quizCompleted = true;
+	
+				if ($quizTotalQuestions > 0) {
+					$percentage = round(($quizScore / $quizTotalQuestions) * 100, 2);
+				}
+	
+				if ($percentage >= 90) {
+					$grade = 'A';
+				} elseif ($percentage >= 80) {
+					$grade = 'B';
+				} elseif ($percentage >= 70) {
+					$grade = 'C';
+				} elseif ($percentage >= 60) {
+					$grade = 'D';
+				}
+			}
+		} else {
+			return $this->redirect('/sign-in');
+		}
+	
+		return $this->renderWith([
+			'QuizPage',
+			'Page'
+		], [
+			'quiz_score' => $quizScore,
+			'quiz_total_questions' => $quizTotalQuestions,
+			'quiz_completed' => $quizCompleted,
+			'percentage' => $percentage,
+			'grade' => $grade
+		]);
 	}
 
 	private static $allowed_actions = ['startQuiz', 'QuizForm', 'submitQuiz'];

@@ -74,7 +74,36 @@ gsap.registerPlugin(ScrollTrigger);
 
 
 barba.hooks.beforeEnter ((data) => {
+    if (document.getElementById("quiz-intro")) {
+        const startButton = document.getElementById("start-quiz");
+        const quizForm = document.getElementById("Form_QuizForm");
+        const quizTimer = document.getElementById("quiz-timer");
+        const timerDisplay = document.getElementById("timer-display");
 
+        quizForm.style.display = "none";
+
+        const quizDuration = parseInt(60, 10) * 60; 
+        let timeLeft = quizDuration;
+        let timerInterval;
+
+        function updateTimer() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            timerDisplay.textContent = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+            
+            timeLeft--;
+        }
+
+        startButton.addEventListener("click", function() {
+            startButton.style.display = "none";
+            quizForm.style.display = "block";
+            quizTimer.classList.remove("d-none");
+
+            updateTimer();
+            timerInterval = setInterval(updateTimer, 1000);
+        });
+        
+    }
 })
 
 
@@ -88,11 +117,11 @@ barba.hooks.afterEnter ((data) => {
         $('.autoplayVideo').each(function() {
             this.play();
         });
-    }, 50);
+    }, 10);
 
     setTimeout(() => {
         animationsText();
-    }, 50);
+    }, 10);
 
     if ( window.location.hash ) {
         setTimeout(function() {
@@ -173,11 +202,6 @@ barba.hooks.afterEnter ((data) => {
             }
         }
     });
-
-    // ASD-167 Google Ads conversion tracking. NOTE: AW-878518428 is added via HubSpot...
-    if (window.location.pathname === '/thank-you') {
-        gtag('event', 'conversion', {'send_to': 'AW-878518428/i6IhCNHJwOYZEJzB9KID'});
-    }
 
 })
 
