@@ -36,7 +36,7 @@
                                 <% end_if %>
                             <% end_loop %>
                         </ul>
-                        <div class="form-actions">
+                        <div class="form-actions mb-2">
                             $QuizForm.Actions
                         </div>
                     </form>
