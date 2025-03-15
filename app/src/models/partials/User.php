@@ -30,6 +30,7 @@ class User extends DataObject
     
     private static $has_many = [
         'Registrations' => EventRegistration::class,
+        'QuizSubmissions' => QuizSubmission::class
     ];
 
     public function getFullName()

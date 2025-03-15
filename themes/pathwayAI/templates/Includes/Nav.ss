@@ -19,6 +19,9 @@
 					<a class="pt-lg-0" href="/about"><em><span data-hover="About">About</span></em></a>
 				</li>
 				<li data-barba-update>
+					<a class="pt-lg-0" href="/quizzes"><em><span data-hover="Quizzes">Quizzes</span></em></a>
+				</li>
+				<li data-barba-update>
 					<a class="pt-lg-0" href="/courses"><em><span data-hover="Courses">Courses</span></em></a>
 				</li>
 				<li data-barba-update>

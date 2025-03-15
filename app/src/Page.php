@@ -34,6 +34,8 @@ namespace {
         function getSettingsFields()
         {
             $fields = parent::getSettingsFields();
+            $fields->removeByName('Content');
+            $fields->removeByName('Metadata');
 
             $fields->addFieldsToTab('Root.Settings', [
                 CheckboxField::create('ShowInMainNav', 'Show in main navigation?'),

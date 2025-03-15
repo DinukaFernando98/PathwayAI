@@ -46,12 +46,30 @@
     font-size: 15px;
 }
 
+.btn-green {
+    justify-self: center;
+    width: 100%;
+    color: white;
+    background: bottom;
+    border: none;
+}
+
+.btn-green:hover {
+    color: var(--bs-blue) !important;
+    background: var(--bs-green);
+}
+
 @include media-breakpoint-up(md) {
     .btn.sm {
         min-height: 52px;
     }
     .btn.xsm {
         min-height: 42px;
+    }
+
+    .btn-green {
+        padding: 3px 30px;
+        font-size: 18px;
     }
 }
 
