@@ -1,1 +1,56 @@
-name: Deploy to cPanel via FTP
+on: push
+name: 🚀 Deploy website on push
+jobs:
+  deploy-production:
+    name: 🚀 Deploy to Production
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get latest code
+      uses: actions/checkout@v4
+    
+    - name: Install dependencies with Composer
+      run: |
+        composer install --no-interaction --prefer-dist
+
+    - name: Expose vendor assets with Composer
+      run: |
+        composer vendor-expose
+
+    - name: Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: ${{ secrets.FTP_HOST }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+
+    - name: Run SilverStripe dev/build
+      run: |
+        curl -s "https://pathwayai.online/dev/build?flush=1"
+
+  deploy-staging:
+    name: 🚀 Deploy to Staging
+    if: github.ref == 'refs/heads/development'
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get latest code
+      uses: actions/checkout@v4
+    
+    - name: Install dependencies with Composer
+      run: |
+        composer install --no-interaction --prefer-dist
+
+    - name: Expose vendor assets with Composer
+      run: |
+        composer vendor-expose
+
+    - name: Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: ${{ secrets.FTP_HOST_STAGE }}
+        username: ${{ secrets.FTP_USERNAME_STAGE }}
+        password: ${{ secrets.FTP_PASSWORD }}
+    
+    - name: Run SilverStripe dev/build
+      run: |
+        curl -s "https://staging.pathwayai.online/dev/build?flush=1"
