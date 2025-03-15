@@ -8,6 +8,7 @@ use SilverStripe\Forms\TextareaField;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Forms\TextField;
 use PathwayAI\Partials\Event;
+use PathwayAI\Partials\Course;
 
 class Company extends DataObject
 {
@@ -24,7 +25,8 @@ class Company extends DataObject
 	];
 
 	private static $has_many = [
-		'Events' => Event::class
+		'Events' => Event::class,
+		'Courses' => Course::class
 	];
 
 	private static $owns = [

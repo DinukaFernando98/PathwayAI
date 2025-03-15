@@ -1,4 +1,4 @@
-<!-- Hero_Events -->
+<!-- Hero_Courses -->
 <div class="d-flex justify-content-center flex-column position-relative">
 	<div class="image-bg w-100  mask-bottom heroScrubAnimation">
 		<img src="$ThemeDir/img/placeholders/photo-38.jpg" class="opacity-25" alt="">
@@ -16,13 +16,13 @@
 				</div>
 			</div>
 			<section class="py-5    g-row-start-md-1   g-start-1 g-col-12   g-start-md-1 g-col-md-6   position-relative">
-				<h1 class="fs-6 fw-semibold text-green" anim-chars="" text-split="">Explore, Learn, Connect!</h1>
-				<h2 class="h1 pb-xl-2" anim-chars="" text-split="">Discover career-boosting events, from expert-led workshops to exclusive job fairs. Your next big break starts here!</h2>
+				<h1 class="fs-6 fw-semibold text-green" anim-chars="" text-split="">Empower Your Future!</h1>
+				<h2 class="h1 pb-xl-2" anim-chars="" text-split="">Find expert-led courses to elevate your skills and career</h2>
 				<div class="d-inline-block" anim-fade=""> 
-					<a href="#events" class="btn icon">
+					<a href="#courses" class="btn icon">
 						<div class="button-fill"></div>
 						<strong>
-							<span data-hover="View events">View events</span>
+							<span data-hover="View courses">View courses</span>
 						</strong>
 						<div class="icon">
 							<svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42">
@@ -42,16 +42,16 @@
 	<div class="py-5 py-sm-4 d-none d-lg-block"></div>
 </div>
 
-<!-- Events Listing -->
+<!-- Courses Listing -->
 <section class="pt-5" data-function="load-more">
 	<div class="container load-more-container" anim-fade="">
-		<p class="filter-heading mb-0">Latest events:</p>
+		<p class="filter-heading mb-0">Latest Courses:</p>
 		<div class="border-top border-bottom" style="--bs-border-color:var(--bs-green)"></div>
-		<div class="min-vh-100" id="events">
+		<div class="min-vh-100" id="courses">
 			<div class="row g-4 mt-5">
-				<% loop $getEvents %>
+				<% loop $getCourses %>
 					<div class="col-sm-6 col-xl-4 load-more-item">
-						<a href="/event/$ObfuscatedID" class="d-block h-100 d-flex flex-column rounded card-2">
+						<a href="$Link" target="_blank" class="d-block h-100 d-flex flex-column rounded card-2">
 							<div>
 								<div class="ratio overflow-hidden" style="--bs-aspect-ratio: 59.7%;--bs-aspect-ratio-mobile: 59.7%;">
 									<picture>
@@ -66,10 +66,10 @@
 							<div class="h-100 d-flex flex-column p-4 p-xxl-5">
 								<div class="flex-grow-1">
 									<div class="d-flex flex-wrap gap-1 mb-4">
-										<p class="fw-semibold text-green mb-0">$Type | <% if $Date %> $FormattedDate <% else %> Date TBA <% end_if %></p>                                        
+										<p class="fw-semibold text-green mb-0">$Title | $Duration</p>                                        
 									</div>
-									<p class="fs-5 fw-semibold lh-sm mb-4"><span class="underline-on-hover">$Title</span></p>
-									<p class=""><span class="underline-on-hover">$Company.Name</span></p>
+									<p class="fs-5 fw-semibold lh-sm mb-4"><span class="underline-on-hover">$CourseType</span></p>
+									<p class=""><span class="underline-on-hover">$Host.Name</span></p>
 								</div>
 								<p class="mb-1 lh-sm fw-semibold d-flex align-items-center bt">
 									<span class="me-2">Read more</span>
