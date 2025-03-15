@@ -1,6 +1,10 @@
 <section>
     <div class="container">
         <h3 class="text-center">$Title</h3>
+		<p class="text-center">
+            The quiz will start when you click the "Start Quiz" button. It will automatically submit when the timer runs out.
+            <strong>Duration: $Quiz.Duration minutes.</strong> Good Luck!
+        </p>
         <div class="grid">
             <div class="g-start-1 g-col-12 g-start-lg-2 g-col-lg-10 g-start-xxl-3 g-col-xxl-8">
                 <% if $quiz_completed %>
