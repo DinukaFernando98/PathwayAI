@@ -52,6 +52,17 @@
 				<% loop $getEvents %>
 					<div class="col-sm-6 col-xl-4 load-more-item">
 						<a href="/event/$ObfuscatedID" class="d-block h-100 d-flex flex-column rounded card-2">
+							<div>
+								<div class="ratio overflow-hidden" style="--bs-aspect-ratio: 59.7%;--bs-aspect-ratio-mobile: 59.7%;">
+									<picture>
+										<% if $Image %>
+											<img data-src="$Image.URL" class="lazy blur zoom-on-hover mx-auto" alt="" title="">
+										<% else %>
+											<img data-src="$ThemeDir/img/placeholders/event-single.jpg" class="lazy blur zoom-on-hover mx-auto" alt="" title="">
+										<% end_if %>
+									</picture>
+								</div>
+							</div>
 							<div class="h-100 d-flex flex-column p-4 p-xxl-5">
 								<div class="flex-grow-1">
 									<div class="d-flex flex-wrap gap-1 mb-4">
@@ -67,17 +78,6 @@
 										<path id="arrow_back_FILL0_wght500_GRAD0_opsz24" d="M159.213-802.438,155.88-799.1l.989.974,5-5-5-5-.989.974,3.333,3.333h-7.344v1.387Z" transform="translate(-146.869 813.131)"/>
 									</svg>
 								</p>
-							</div>
-							<div>
-								<div class="ratio overflow-hidden" style="--bs-aspect-ratio: 59.7%;--bs-aspect-ratio-mobile: 59.7%;">
-									<picture>
-										<% if $Image %>
-											<img data-src="$Image.URL" class="lazy blur zoom-on-hover mx-auto" alt="" title="">
-										<% else %>
-											<img data-src="$ThemeDir/img/placeholders/event-single.jpg" class="lazy blur zoom-on-hover mx-auto" alt="" title="">
-										<% end_if %>
-									</picture>
-								</div>
 							</div>
 						</a>
 					</div>
