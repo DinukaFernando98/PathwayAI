@@ -1,7 +1,7 @@
 <!-- Hero_Quizes -->
 <div class="d-flex justify-content-center flex-column position-relative">
 	<div class="image-bg w-100  mask-bottom heroScrubAnimation">
-		<img src="$ThemeDir/img/placeholders/photo-38.jpg" class="opacity-25" alt="">
+		<img src="$ThemeDir/img/placeholders/single-hero.jpg" class="opacity-25" alt="">
 	</div>
 	<div class="spacer"></div>
 	<div class="container py-4 position-relative">
