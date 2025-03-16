@@ -1,7 +1,7 @@
 <!-- Sign-up Form -->
 <div class="d-flex justify-content-center flex-column position-relative">
     <div class="image-bg w-100  mask-bottom heroScrubAnimation">
-        <img src="$ThemeDir/img/placeholders/photo-21.jpg" class="opacity-25" alt="">
+        <img src="$ThemeDir/img/placeholders/single-hero.jpg" class="opacity-25" alt="">
     </div>
     <section class="container position-relative text-center">
         <div class="grid">
