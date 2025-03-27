@@ -45,107 +45,63 @@
 <section class="pt-5" data-function="load-more">
 	<div class="container">
 		<section class="career-pathway">
-            <h3>Your Career Pathway</h3>
-            <p>Estimated salary for your role:</p>
-            <% if $Parameters %>
-                <h3>Search Parameters</h3>
-                <ul>
-                    <% if $Parameters.job_title %><li>Job Title: $Parameters.job_title</li><% end_if %>
-                    <% if $Parameters.location %><li>Location: $Parameters.location</li><% end_if %>
-                    <% if $Parameters.location_type %><li>Location Type: $Parameters.location_type</li><% end_if %>
-                    <% if $Parameters.years_of_experience %><li>Years of Experience: $Parameters.years_of_experience</li><% end_if %>
-                </ul>
-            <% else %>
-                <p>No search parameters found.</p>
-            <% end_if %>
-            
-            <% if $CareerDataList %>
-                <h3>Career Data</h3>
-                <% loop $CareerDataList %>
-                    <div>
-                        <h4>$job_title</h4>
-                        <p>Location: $location</p>
-                        <p>Salary Range: $min_salary - $max_salary $salary_currency ($salary_period)</p>
-                        <p>Median Salary: $median_salary</p>
-                        <p>Base Salary: $median_base_salary</p>
-                        <p>Additional Pay: $median_additional_pay</p>
-                    </div>
-                <% end_loop %>
-            <% else %>
-                <p>No career data available.</p>
-            <% end_if %>
-
-
             <% if $LinkedInJobsList %>
                 <h3>More Job Listings (LinkedIn)</h3>
                 <% loop $LinkedInJobsList %>
                     <div>
-                        <%-- <img src="$organization_logo"> --%>
+                        <img src="$organization_logo">
                         <h4>$title</h4>
                         <p>Company: $organization</p>
                         <p>Location: $location</p>
                         <p>Posted: $date_posted</p>
-                        <%-- <p>Employment Type: $employment_type</p>
-                        <p>Posted: $date_posted</p> --%>
                         <p><a href="$url" target="_blank">View Job</a></p>
                     </div>
                 <% end_loop %>
             <% else %>
                 <p>No additional jobs found.</p>
             <% end_if %>
-
-
         </section>
-    <section>
 
-        <% if JobPrediction.Error %>
-            <p class="error">Error: $JobPrediction.Error</p>
-        <% else %>
-            <h2>Predictions for: $JobPrediction.JobTitle</h2>
-            <p><strong>Salary Range:</strong> $JobPrediction.SalaryRange</p>
-            <p><strong>Experience Required:</strong> $JobPrediction.ExperienceRequired</p>
-            <p><strong>Qualifications Required:</strong></p>
-            <ul>
-                <% loop JobPrediction.QualificationsRequired %>
-                    <li>$Qualification</li>
-                <% end_loop %>
-            </ul>
-        <% end_if %>
-    </section>
+        <section class="pt-5">
+            <% if JobPrediction.Error %>
+                <p class="error">Error: $JobPrediction.Error</p>
+            <% else %>
+                <h2>Predictions for: $JobPrediction.JobTitle</h2>
+                <p><strong>Salary Range:</strong> $JobPrediction.SalaryRange</p>
+                <p><strong>Experience Required:</strong> $JobPrediction.ExperienceRequired</p>
+                <p><strong>Qualifications Required:</strong></p>
+                <ul>
+                    <% loop JobPrediction.QualificationsRequired %>
+                        <li>$Qualification</li>
+                    <% end_loop %>
+                </ul>
+            <% end_if %>
+        </section>
 
-
-        <% if $careerPathDataList %>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-3">
-                        <% loop $careerPathDataList %>
-                            <!-- Card for Career Step -->
-                            <div class="card mb-4">
-                                <div class="card-body">
-                                    <p class="card-text text-center">$CareerStep</p>
+        <section class="pt-5">
+            <% if $careerPathDataList %>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-3">
+                            <% loop $careerPathDataList %>
+                                <div class="card mb-4">
+                                    <div class="card-body">
+                                        <p class="card-text text-center">$CareerStep</p>
+                                    </div>
                                 </div>
-                            </div>
-        
-                            <!-- Add down directional arrow between steps -->
-                            <% if $Last %>
-                                <!-- No arrow after the last step -->
-                            <% else %>
-                                <div class="text-center mb-4">
-                                    <i class="fas fa-arrow-down fa-3x"></i>
-                                </div>
-                            <% end_if %>
-                        <% end_loop %>
+                                <% if not $Last %>
+                                    <div class="text-center mb-4">
+                                        <i class="fas fa-arrow-down fa-3x"></i>
+                                    </div>
+                                <% end_if %>
+                            <% end_loop %>
+                        </div>
                     </div>
                 </div>
-            </div>
-        <% else %>
-            <p>No career path available.</p>
-        <% end_if %>
+            <% else %>
+                <p>No career path available.</p>
+            <% end_if %>
+        </section>
         
-        
-        
-        
-
-
 	</div>
 </section>
