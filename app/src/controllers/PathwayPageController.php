@@ -10,6 +10,7 @@ use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\ArrayData;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
+use SilverStripe\Core\Environment;
 
 class PathwayPageController extends \PageController
 {
@@ -32,12 +33,6 @@ class PathwayPageController extends \PageController
     public function index(HTTPRequest $request)
     {
         $user = $this->getLoggedInUser();
-
-        $careerDataList = new ArrayList();
-        foreach ($careerData['data'] ?? [] as $item) {
-            $careerDataList->push(new ArrayData($item));
-        }
-
         $careerPathData = $this->getCareerPathway($user);
 
         $careerPathDataList = new ArrayList();
@@ -46,9 +41,9 @@ class PathwayPageController extends \PageController
         }
 
         // Fetch trending jobs LinkedIn API
-        $jobTitle = 'Software Engineer'; 
-        //$linkedInJobs = $this->getLinkedInJobs($jobTitle);
+        $jobTitle = 'Software Engineer';
 
+        //$linkedInJobs = $this->getLinkedInJobs($jobTitle);
         // Convert LinkedIn Jobs to SilverStripe ArrayList
         // $linkedInJobsList = new ArrayList();
         // foreach ($linkedInJobs as $job) {
@@ -94,15 +89,15 @@ class PathwayPageController extends \PageController
     private function getLinkedInJobs($jobTitle)
     {
         $client = new Client();
+        $apiKey = Environment::getEnv('LINKEDIN_API_KEY');
 
         try {
-            // Make the GET request to LinkedIn Job API with the job title filter
             $response = $client->request('GET', 'https://linkedin-job-search-api.p.rapidapi.com/active-jb-24h', [
                 'query' => [$jobTitle,
                 ],
                 'headers' => [
                     'x-rapidapi-host' => 'linkedin-job-search-api.p.rapidapi.com',
-                    'x-rapidapi-key' => 'dd3dd3e240mshd0f81f339e687cap19c507jsn68c230902d00'
+                    'x-rapidapi-key' => $apiKey
                 ]
             ]);
 
@@ -141,7 +136,6 @@ private function getCareerPathway($user)
         $result = json_decode($process->getOutput(), true);
 
         if (isset($result['career_path'])) {
-            // Map the career path steps to ArrayData
             $careerPathDataList = [];
             foreach ($result['career_path'] as $step) {
                 $careerPathDataList[] = new ArrayData(['CareerStep' => $step]);
@@ -156,7 +150,7 @@ private function getCareerPathway($user)
     {
         $jobTitle = trim($jobTitle);
 
-        // Call the Python script and pass the job title
+        // Call the Python script to predict job info
         $process = new Process(['python', 'python/predict_job_info.py', $jobTitle]);
         $process->run();
 
