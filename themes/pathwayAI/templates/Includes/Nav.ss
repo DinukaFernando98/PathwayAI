@@ -25,6 +25,9 @@
 					<a class="pt-lg-0" href="/courses"><em><span data-hover="Courses">Courses</span></em></a>
 				</li>
 				<li data-barba-update>
+					<a class="pt-lg-0" href="/my-pathway"><em><span data-hover="My Pathway">My Pathway</span></em></a>
+				</li>
+				<li data-barba-update>
 					<a class="pt-lg-0" href="/job-portal"><em><span data-hover="Job Portal">Job Portal</span></em></a>
 				</li>
 				<li data-barba-update>

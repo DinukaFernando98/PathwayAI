@@ -12,3 +12,4 @@
 /themes/**/node_modules/
 /silverstripe-cache/
 /themes/**/build/
+/python/job_skills_dataset.csv
