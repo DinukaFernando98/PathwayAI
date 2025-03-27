@@ -3,7 +3,7 @@
     "type": "silverstripe-recipe",
     "description": "The SilverStripe Framework Installer",
     "require": {
-        "php": ">=8.1.0",
+        "php": ">=8.2.0",
         "silverstripe/recipe-plugin": "^1.2",
         "silverstripe/recipe-cms": "~4.13.0@stable",
         "symbiote/silverstripe-gridfieldextensions": "^3.5",
@@ -11,7 +11,11 @@
         "undefinedoffset/sortablegridfield": "^2.1",
         "dnadesign/silverstripe-elemental": "^4",
         "silverstripe/tagfield": "^2.11",
-        "sheadawson/silverstripe-linkable": "^2.0"
+        "sheadawson/silverstripe-linkable": "^2.0",
+        "guzzlehttp/guzzle": "*",
+        "symfony/process": "*",
+        "silverstripe/mfa": "^4.6"
+
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5"
