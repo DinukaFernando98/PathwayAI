@@ -31,8 +31,6 @@ class JobController extends \PageController
             'Event' => $event
         ])->renderWith(['Event_show', 'Page']);
     }
-    private static $allowed_actions = ['index', 'EventForm', 'submit'];
-
 
 	public function EventForm()
 	{
@@ -66,8 +64,6 @@ class JobController extends \PageController
             FormAction::create('submit', 'Register now')
                 ->setAttribute('class', 'mt-4 btn-form btn blue')
         );
-
-        $form = new Form($this, 'EventRegistrationForm', $fields, $actions);
 
 		$form = Form::create($this, 'EventForm', $fields, $actions);
         $form->setFormMethod('POST')->setFormAction('/event/' . $this->getRequest()->param('ObfuscatedID') . '/submit');
