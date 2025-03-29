@@ -1,0 +1,3 @@
+AspectDigital\Models\BlocksPage:
+  extensions:
+    - DNADesign\Elemental\Extensions\ElementalPageExtension
