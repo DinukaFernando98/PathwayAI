@@ -4,12 +4,12 @@ namespace PathwayAI\Models\Elemental;
 
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Forms\TextField;
-class StatsBannerElement extends BaseElement
+class FullWidthCTABannerElement extends BaseElement
 {
 	private static $inline_editable = true;
 
-	private static $table_name = 'StatsBannerElement';
-
+	private static $table_name = 'FullWidthCTABanner';
+	
 	private static $icon = 'font-icon-image';
 
 	private static $db = [
@@ -29,6 +29,6 @@ class StatsBannerElement extends BaseElement
 
 	public function getType()
 	{
-		return 'Stats Banner';
+		return 'Full width CTA Banner';
 	}
 }
