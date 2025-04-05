@@ -99,13 +99,13 @@
             </div>
             <section class="py-5    g-row-start-md-1   g-start-1 g-col-12   g-start-md-1 g-col-md-6   position-relative">
                 <h1 class="fs-6 fw-semibold text-green" anim-chars="" text-split="">About us</h1>
-                <h2 class="h1 pb-xl-2" anim-chars="" text-split="">Comprehensive OT protection across <strong>compliance, integrity and security</strong></h2>
-                <p class="h5 mb-6 pb-xl-4 mw-810" anim-fade="">A single software platform to help you eliminate downtime, improve safety and achieve compliance, bringing greater visibility, reliability and reassurance across your critical operations.</p>
+                <h2 class="h1 pb-xl-2" anim-chars="" text-split="">Shape Your Future with AI-Powered <strong>Career Guidance</strong></h2>
+                <p class="h5 mb-6 pb-xl-4 mw-810" anim-fade="">Discover personalized career roadmaps, real-time job market insights, and skill-building opportunities—all in one powerful platform. </p>
                 <div class="d-inline-block" anim-fade=""> 
-                    <a href="book-a-demo.html" class="btn icon">
+                    <a href="#read-more" class="btn icon">
                         <div class="button-fill"></div>
                         <strong>
-                            <span data-hover="Book a demo">Book a demo</span>
+                            <span data-hover="Read more">Read more</span>
                         </strong>
                         <div class="icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42">
