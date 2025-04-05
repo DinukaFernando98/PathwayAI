@@ -64,8 +64,68 @@
     <div class="py-5 py-sm-4"></div>
 </div>
 
-<% else %>
+<% else_if $URLSegment == 'about' %>
 
+<div class="d-flex justify-content-center flex-column position-relative">
+    <div class="image-bg w-100 mask-left heroScrubAnimation">
+        <img src="$ThemeDir/img/blocks/bg-1.jpg" class="opacity-25" alt="">
+    </div>
+    <div class="spacer"></div>
+    <div class="container py-4 position-relative">
+        <div class="grid align-items-center">
+            <div class="g-row-start-md-1   g-start-1 g-col-12   g-start-md-8 g-col-md-5   d-flex justify-content-center">
+                <div class="ratio user-select-none w-small-md-down" anim-fade="" style="--bs-aspect-ratio: 100%;--bs-aspect-ratio-mobile: 100%;" scroll-zoom-trigger="">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <picture class="rounded" style="width: 93.58%;">
+                            <img src="$ThemeDir/img/blocks/bulb.jpg" class="rounded" alt="" title="">
+                        </picture>
+                    </div>
+                    <div class="screen-shot d-flex align-items-start ms-5 ps-xl-5" scroll-zoom="0" scroll-rotate="20">
+                        <picture class="rounded" style="width: 42.26%;">
+                            <img src="$ThemeDir/img/blocks/office-3.jpg" class="rounded" alt="" title="">
+                        </picture>
+                    </div>
+                    <div class="screen-shot d-flex align-items-end justify-content-start ms-4 ms-xl-5" scroll-zoom="0" scroll-rotate="-20">
+                        <picture class="rounded bottom-0" style="width: 48.38%;">
+                            <img src="$ThemeDir/img/blocks/office-6.jpg" class="rounded" alt="" title="">
+                        </picture>
+                    </div>
+                    <div class="screen-shot d-flex align-items-center justify-content-end mt-3" scroll-zoom="0" scroll-rotate="10">
+                        <picture class="rounded bottom-0" style="width: 33.82%;">
+                            <img src="$ThemeDir/img/blocks/office-4.jpg" class="rounded" alt="" title="">
+                        </picture>
+                    </div>
+                </div>
+            </div>
+            <section class="py-5    g-row-start-md-1   g-start-1 g-col-12   g-start-md-1 g-col-md-6   position-relative">
+                <h1 class="fs-6 fw-semibold text-green" anim-chars="" text-split="">About us</h1>
+                <h2 class="h1 pb-xl-2" anim-chars="" text-split="">Comprehensive OT protection across <strong>compliance, integrity and security</strong></h2>
+                <p class="h5 mb-6 pb-xl-4 mw-810" anim-fade="">A single software platform to help you eliminate downtime, improve safety and achieve compliance, bringing greater visibility, reliability and reassurance across your critical operations.</p>
+                <div class="d-inline-block" anim-fade=""> 
+                    <a href="book-a-demo.html" class="btn icon">
+                        <div class="button-fill"></div>
+                        <strong>
+                            <span data-hover="Book a demo">Book a demo</span>
+                        </strong>
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42">
+                                <circle id="Ellipse_138" data-name="Ellipse 138" cx="21" cy="21" r="21" fill="#d8f96f"></circle>
+                                <path id="arrow_forward_FILL0_wght400_GRAD0_opsz48" d="M17,26l-1.181-1.209,6.947-6.947H8V16.156H22.766L15.819,9.209,17,8l9,9Z" transform="translate(4 4)" fill="#141f3e"></path>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42">
+                                <circle id="Ellipse_138" data-name="Ellipse 138" cx="21" cy="21" r="21" fill="#141f3e"></circle>
+                                <path id="arrow_forward_FILL0_wght400_GRAD0_opsz48" d="M17,26l-1.181-1.209,6.947-6.947H8V16.156H22.766L15.819,9.209,17,8l9,9Z" transform="translate(4 4)" fill="#d8f96f"></path>
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="py-5 py-sm-4 d-none d-lg-block"></div>
+</div>
+
+<% else %>
 <!-- Hero_single -->
 <div class="d-flex justify-content-center flex-column position-relative">
     <div class="image-bg w-100  mask-bottom heroScrubAnimation">
