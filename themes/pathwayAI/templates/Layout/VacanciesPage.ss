@@ -56,7 +56,7 @@
                                 <h5 class="card-title">$Title</h5>
                                 <p class="card-text">$Company.Name</p>
                                 <p class="text-white small">Location: $Location | $Type</p>
-                                <a class="btn btn-green">Apply Now</a>
+                                <a href="/job/$ObfuscatedID" class="btn btn-green">Apply Now</a>
                             </div>
                         </div>
                     </div>

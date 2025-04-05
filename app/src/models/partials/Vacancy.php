@@ -2,14 +2,8 @@
 
 namespace PathwayAI\Partials;
 
-use Sheadawson\Linkable\Forms\LinkField;
-use Sheadawson\Linkable\Models\Link;
-use SilverStripe\AssetAdmin\Forms\UploadField;
-use SilverStripe\Assets\Image;
-use SilverStripe\Forms\DateField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
-use SilverStripe\Forms\TextareaField;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Forms\TextField;
 
@@ -28,8 +22,8 @@ class Vacancy extends DataObject
 		'Company' => Company::class
 	];
 
-	private static $many_many = [
-		'Applicants' => User::class
+	private static $has_many = [
+		'Applications' => JobApplication::class
 	];
 
 	private static $summary_fields = [
@@ -49,6 +43,23 @@ class Vacancy extends DataObject
 		]);
 
 		return $fields;
+	}
+
+	public function getObfuscatedID()
+	{
+		return $this->encodeSelf();
+	}
+	
+	private function encodeSelf()
+	{
+		$encoded = base_convert($this->ID * 98765, 10, 36);
+		return str_pad($encoded, 6, 'x', STR_PAD_LEFT);
+	}
+	
+	public static function decodeObfuscatedID($obfuscatedID)
+	{
+		$decoded = base_convert(ltrim($obfuscatedID, 'x'), 36, 10);
+		return intval($decoded / 98765);
 	}
 
 }
