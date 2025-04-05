@@ -6,12 +6,6 @@ use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Forms\TextField;
 class StatsBannerElement extends BaseElement
 {
-	private static $singular_name = 'Stats banner';
-
-	private static $plural_name = 'Stats banners';
-
-	private static $description = 'Stats banner.';
-
 	private static $inline_editable = true;
 
 	private static $table_name = 'StatsBannerElement';

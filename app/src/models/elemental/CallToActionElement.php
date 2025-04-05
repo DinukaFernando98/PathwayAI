@@ -10,12 +10,6 @@ use SilverStripe\Forms\TextField;
 
 class CallToActionElement extends BaseElement
 {
-	private static $singular_name = 'Call to Action';
-
-	private static $plural_name = 'Call to Actions';
-
-	private static $description = 'Call to action.';
-
 	private static $inline_editable = false;
 
 	private static $table_name = 'CallToActionElement';
