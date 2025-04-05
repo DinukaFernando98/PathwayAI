@@ -3,4 +3,4 @@ SilverStripe\Control\Director:
     'event/$ObfuscatedID': 'PathwayAI\Controllers\EventController'
     'register/$ObfuscatedID': 'PathwayAI\Controllers\RegisterPageController'
     'sign-out': 'PathwayAI\Controllers\SignInPageController'
-  
+    'job/$ObfuscatedID': 'PathwayAI\Controllers\JobController'

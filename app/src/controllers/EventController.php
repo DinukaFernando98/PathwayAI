@@ -11,8 +11,6 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\Form;
 use SilverStripe\Forms\FormAction;
 use SilverStripe\Forms\HiddenField;
-use SilverStripe\Forms\RequiredFields;
-use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\TextField;
 
 class EventController extends \PageController
