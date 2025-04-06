@@ -18,7 +18,6 @@
 
                         <p>View all completed Quizes <a href="/my-profile">here</a></p>
                     </div>
-
                 <% else %>
 
                     <div id="quiz-intro">
