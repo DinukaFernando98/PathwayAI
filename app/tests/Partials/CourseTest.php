@@ -29,7 +29,7 @@ class CourseTest extends SapphireTest
         $course->CourseType = 'Information Technology';
         $course->Title = 'Test IT Course';
         $course->Duration = '3 months';
-        $course->Link = 'http://test-it-course.com';
+        $course->Link = 'https://test-it-course.com';
         $course->HostID = $company->ID; // Associate the course with the created company
         $course->write();
 
@@ -41,7 +41,7 @@ class CourseTest extends SapphireTest
         $this->assertEquals('Test IT Course', $retrievedCourse->Title, 'Course title should match');
         $this->assertEquals('Information Technology', $retrievedCourse->CourseType, 'Course type should match');
         $this->assertEquals('3 months', $retrievedCourse->Duration, 'Course duration should match');
-        $this->assertEquals('http://test-it-course.com', $retrievedCourse->Link, 'Course link should match');
+        $this->assertEquals('https://test-it-course.com', $retrievedCourse->Link, 'Course link should match');
     }
 
 }
