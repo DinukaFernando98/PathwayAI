@@ -13,3 +13,4 @@
 /silverstripe-cache/
 /themes/**/build/
 /python/job_skills_dataset.csv
+/.phpunit.result.cache
