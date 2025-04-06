@@ -47,4 +47,30 @@ class QuizSubmission extends DataObject
 
         return $fields;
     }
+
+    // In PathwayAI\Partials\QuizSubmission
+
+public function getPercentage()
+{
+    $totalQuestions = $this->QuizPage()->Questions()->count();
+    return $totalQuestions > 0 ? round(($this->Score / $totalQuestions) * 100, 2) : 0;
+}
+
+public function getGrade()
+{
+    $percentage = $this->getPercentage();
+
+    if ($percentage >= 90) {
+        return 'A';
+    } elseif ($percentage >= 80) {
+        return 'B';
+    } elseif ($percentage >= 70) {
+        return 'C';
+    } elseif ($percentage >= 60) {
+        return 'D';
+    } else {
+        return 'F';
+    }
+}
+
 }

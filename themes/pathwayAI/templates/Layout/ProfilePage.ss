@@ -52,7 +52,7 @@
     <div class="container load-more-container" anim-fade="">
         <hr class="my-5">
         <h3 class="mb-0">Registered Events</h3>
-        <div class="min-vh-100">
+        <div class="mb-4">
             <div class="row g-4 mt-4">
                 <% loop $getRegisteredEvents %>
                     <div class="col-sm-6 col-xl-4 load-more-item">
@@ -111,3 +111,96 @@
         </div>
     </div>
 </div>
+
+<!-- Quizzes Listing -->
+<div class="container" data-function="load-more">
+    <div class="container load-more-container" anim-fade="">
+        <hr class="my-5">
+        <h3 class="mb-0">My Quizes</h3>
+        <div class="row g-4 mt-5 mb-4">
+            <% loop $getQuizzes %>
+                <div class="col-sm-6 col-xl-4 load-more-item">
+                    <a href="$QuizPage.Link" class="d-block h-100 d-flex flex-column rounded card-2">
+                        <div>
+                            <div class="ratio overflow-hidden" style="--bs-aspect-ratio: 59.7%;--bs-aspect-ratio-mobile: 59.7%;">
+                                <picture>
+                                    <% if $QuizPage.Image %>
+                                        <img data-src="$QuizPage.Image.URL" class="lazy blur zoom-on-hover mx-auto" alt="" title="">
+                                    <% else %>
+                                        <img data-src="$ThemeDir/img/placeholders/event-single.jpg" class="lazy blur zoom-on-hover mx-auto" alt="" title="">
+                                    <% end_if %>
+                                </picture>
+                            </div>
+                        </div>
+                        <div class="h-100 d-flex flex-column p-4 p-xxl-5">
+                            <div class="flex-grow-1">
+                                <div class="d-flex flex-wrap gap-1 mb-4">
+                                    <p class="fw-semibold text-green mb-0">$QuizPage.Type | $QuizPage.Duration Minutes</p>
+                                </div>
+                                <p class="fs-5 fw-semibold lh-sm mb-2"><span class="underline-on-hover">$QuizPage.Title</span></p>
+                                <p class="mb-2">Score: $Score / $QuizPage.Questions.Count</p>
+                                <p class="mb-2">Percentage: $Percentage%</p>
+                                <p class="grade-label grade-$grade mb-4">Grade: <strong>$grade</strong></p>
+                            </div>
+                            <p class="mb-1 lh-sm fw-semibold d-flex align-items-center bt">
+                                <span class="me-2">View Quiz</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                                    <circle cx="10" cy="10" r="10" fill="#d8f96f"/>
+                                    <path d="M159.213-802.438,155.88-799.1l.989.974,5-5-5-5-.989.974,3.333,3.333h-7.344v1.387Z" transform="translate(-146.869 813.131)"/>
+                                </svg>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                <% end_loop %>
+            </div>
+            <div class="d-flex align-items-center justify-content-center">
+                <div class="d-inline-block">
+                    <a href="#" class="btn sm bright-blue icon no-rotate load-more-button mt-5">
+                        <div class="button-fill"></div>
+                        <strong>
+                            <span data-hover="Load more">Load more</span>
+                        </strong>
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 46 47">
+                                <ellipse id="Ellipse_160" data-name="Ellipse 160" cx="23" cy="23.5" rx="23" ry="23.5" fill="#fff"/>
+                                <path id="Path_26746" data-name="Path 26746" d="M8504.5-4235h-3v-8.5H8493v-3h8.5v-8.5h3v8.5h8.5v3h-8.5Z" transform="translate(-8479.5 4268.502)" fill="#141f3e"/>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 46 47">
+                                <ellipse id="Ellipse_160" data-name="Ellipse 160" cx="23" cy="23.5" rx="23" ry="23.5" fill="#141f3e"/>
+                                <path id="Path_26746" data-name="Path 26746" d="M8504.5-4235h-3v-8.5H8493v-3h8.5v-8.5h3v8.5h8.5v3h-8.5Z" transform="translate(-8479.5 4268.502)" fill="#fff"/>
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Vacancy Listing -->
+<div class="container mb-5" data-function="load-more">
+    <div class="container load-more-container" anim-fade="">
+        <hr class="my-5">
+        <h3 class="mb-0">My Applications</h3>
+        <div class="mb-5">
+			<div class="row g-4 mt-5">
+				<% loop $getVacancies %>
+					<div class="col-md-6 col-lg-4">
+						<div class="card shadow-sm border-white h-100 rounded" style="background-color: transparent; border: 1px solid white;">
+							<div class="card-body text-white text-left p-4">
+								<h5 class="card-title">$Job.Title</h5>
+								<p class="card-text">$Job.Company.Name</p>
+								<p class="text-white small">Location: $Job.Location | $Job.Type</p>
+								<a href="/job/$Job.ObfuscatedID" class="btn btn-green">View Job</a>
+							</div>
+						</div>
+					</div>
+				<% end_loop %>
+			</div>
+		</div>
+	</div>
+</div>
+
+

@@ -40,8 +40,8 @@ class PathwayPageController extends \PageController
             $careerPathDataList->push($item); 
         }
 
-        // Fetch trending jobs LinkedIn API
-        $jobTitle = 'Software Engineer';
+        // Fetch users interested position
+        $jobTitle = $user->InterestedPosition;
 
         //$linkedInJobs = $this->getLinkedInJobs($jobTitle);
         // Convert LinkedIn Jobs to SilverStripe ArrayList
@@ -110,7 +110,7 @@ class PathwayPageController extends \PageController
         }
     }
 
-private function getCareerPathway($user)
+    private function getCareerPathway($user)
     {
         $userarea = $user->InterestedArea;
 

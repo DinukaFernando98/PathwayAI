@@ -18,5 +18,5 @@ class VacanciesAdmin extends ModelAdmin
 	private static $menu_priority = 4;
 
 	//Icons can be found at: https://gbaumeister.github.io/ss4-icons/
-	private static $menu_icon_class = 'font-icon-list';
+	private static $menu_icon_class = 'font-icon-install';
 }
