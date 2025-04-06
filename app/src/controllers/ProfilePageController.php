@@ -258,7 +258,7 @@ class ProfilePageController extends \PageController
                 ->setAttribute('class', 'mt-5 btn-form btn btn--bs-teal')
         );
 
-        $validator = RequiredFields::create('FirstName', 'LastName', 'Email', 'EntryLevel', 'InterestedArea', 'InterestedPosition');
+        $validator = RequiredFields::create('FirstName', 'LastName', 'Email', 'EntryLevel', 'InterestedArea');
 
         return Form::create($this, 'ProfileForm', $fields, $actions, $validator)
             ->setFormMethod('POST')
